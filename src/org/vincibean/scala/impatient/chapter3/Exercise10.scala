@@ -18,9 +18,9 @@
 package org.vincibean.scala.impatient.chapter3
 
 import java.awt.datatransfer._
+
 import scala.collection.JavaConversions.asScalaBuffer
 import scala.collection.mutable
-import scala.collection.mutable.Buffer
 
 /**
   * Import java.awt.datatransfer._ and make an object of type SystemFlavorMap with the call
