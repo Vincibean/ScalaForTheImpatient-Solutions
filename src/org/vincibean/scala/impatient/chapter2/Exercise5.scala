@@ -29,7 +29,7 @@ object Exercise5 extends App {
   print("Select an integer number > 0: ")
   val start = StdIn.readInt()
   // TODO Check that start > 0
-  println
+  println()
   println("Starting countdown")
   countdown(start)
   println("BOOOOM!!")

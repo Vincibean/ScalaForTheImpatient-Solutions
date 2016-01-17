@@ -30,7 +30,7 @@ object Exercise6 extends App {
   val initialArray = Array(1.0, 2.0, -12.0)
   println(s"Initial Array: ${initialArray.mkString(", ")}")
   println(s"Reverse Sorted Order: ${initialArray.sortWith( _ > _).mkString(", ")}")
-  println
+  println()
   val initialArrayBuffer = mutable.Buffer(1, -10, 3, 4, 8, 2, 5)
   println(s"Initial Array: ${initialArrayBuffer.mkString(", ")}")
   println(s"Reverse Sorted Order: ${initialArrayBuffer.sortWith( _ > _)}")

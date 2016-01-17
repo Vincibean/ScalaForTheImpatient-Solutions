@@ -35,11 +35,15 @@ import scala.collection.JavaConversions.propertiesAsScalaMap
   * Created by Vincibean on 17/01/16.
   */
 object Exercise7 extends App {
+
   val properties: scala.collection.mutable.Map[String, String] = System.getProperties
+
   implicit val cmp : scala.Ordering[String] = new Ordering[String](){
     override def compare(x: String, y: String): Int = x.length - y.length
   }
+
   val maxLengthProperty = properties.keySet.max.length
   properties.foreach((t: (String, String)) =>
     println(t._1 + (" " * (maxLengthProperty - t._1.length) + " | " + t._2)))
+
 }

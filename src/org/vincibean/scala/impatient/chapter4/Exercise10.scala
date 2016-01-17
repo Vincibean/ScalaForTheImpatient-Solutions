@@ -24,8 +24,10 @@ package org.vincibean.scala.impatient.chapter4
   * Created by Vincibean on 17/01/16.
   */
 object Exercise10 extends App {
+
   // Let's come up with a use case similar to the one proposed in the first exercise of the chapter.
   val gizmos = List("CPU", "Hard Drive", "Keyboard", "Joystick")
   val prices = List(327, 123, 30, 45)
   println((gizmos zip prices).mkString(", "))
+
 }

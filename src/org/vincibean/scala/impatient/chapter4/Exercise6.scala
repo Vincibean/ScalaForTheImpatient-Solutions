@@ -29,6 +29,7 @@ import scala.collection.mutable
   * Created by Vincibean on 17/01/16.
   */
 object Exercise6 extends App {
+
   val weekDays = mutable.LinkedHashMap(
     "Sunday" -> SUNDAY,
     "Monday" -> MONDAY,
@@ -39,4 +40,5 @@ object Exercise6 extends App {
     "Saturday" -> SATURDAY)
   // Results will be printed in insertion order.
   println(weekDays.mkString(", "))
+
 }
