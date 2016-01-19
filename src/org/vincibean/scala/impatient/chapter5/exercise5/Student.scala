@@ -15,21 +15,15 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter5
+package org.vincibean.scala.impatient.chapter5.exercise5
+
+import scala.beans.BeanProperty
 
 /**
-  * Write a class Person with a primary constructor that accepts a string containing
-  * a first name, a space, and a last name, such as new Person("Fred Smith"). Supply
-  * read-only properties firstName and lastName . Should the primary constructor
-  * parameter be a var, a val, or a plain parameter? Why?
+  * Make a class Student with read-write JavaBeans properties name (of type String)
+  * and id (of type Long). What methods are generated? (Use javap to check). Can
+  * you call the JavaBeans getters and setters in Scala? Should you?
   *
-  * Created by Vincibean on 19/01/16.
+  * Created by Vincibean on 18/01/16.
   */
-package object Exercise7 extends App {
-
-  val person: Person = new Person("Wesley Crusher")
-  println(s"Person name: ${person.name}")
-  println(s"Person last name: ${person.lastName}")
-  // println(s"Student ID: ${person.nameAndLastName}")    // Compile time error!
-
-}
+case class Student (@BeanProperty var name: String, @BeanProperty var id: Long)

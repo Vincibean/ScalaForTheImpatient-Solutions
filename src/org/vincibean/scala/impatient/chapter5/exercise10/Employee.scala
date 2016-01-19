@@ -15,7 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter5.Exercise10
+package org.vincibean.scala.impatient.chapter5.exercise10
 
 /**
   * Consider the class:

@@ -15,7 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter5.Exercise4
+package org.vincibean.scala.impatient.chapter5.exercise4
 
 /**
   * Reimplement the Time class from the preceding exercise so that the internal

@@ -15,21 +15,22 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter5
+package org.vincibean.scala.impatient.chapter5.exercise7
 
 /**
-  * In the Person class of Section 5.1, “Simple Classes and Parameterless Methods”,
-  * on page 51, provide a primary constructor that turns negative ages to 0.
+  * Write a class Person with a primary constructor that accepts a string containing
+  * a first name, a space, and a last name, such as new Person("Fred Smith"). Supply
+  * read-only properties firstName and lastName. Should the primary constructor
+  * parameter be a var, a val, or a plain parameter? Why?
   *
   * Created by Vincibean on 18/01/16.
   */
-package object Exercise6 extends App {
+class Person (nameAndLastName: String) {    // Make the primary constructor parameter a plain parameter: we don't want
+                                            // getters and setters to be created by the compiler.
+  private[this] val names = nameAndLastName.split(" ")
 
-  val p1: Person = new Person(30)
-  println(s"First person's age should be 30; actual: ${p1.age}")
-  val p2: Person = new Person(0)
-  println(s"Second person's age should be 0; actual: ${p2.age}")
-  val p3: Person = new Person(-24)
-  println(s"Third person's age should be -24; actual: ${p3.age}")
+  val name: String = names.head
+
+  val lastName: String = names.last
 
 }

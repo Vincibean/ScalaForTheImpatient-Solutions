@@ -15,22 +15,19 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter5
+package org.vincibean.scala.impatient.chapter5.exercise6
 
 /**
-  * Improve the Counter class in Section 5.1, “Simple Classes and Parameterless
-  * Methods” on page 51 so that it doesn’t turn negative at Int.MaxValue .
+  * In the Person class of Section 5.1, “Simple Classes and Parameterless Methods”,
+  * on page 51, provide a primary constructor that turns negative ages to 0.
   *
   * Created by Vincibean on 18/01/16.
   */
-package object Exercise1 extends App {
-
-  val counter = new Counter
-  // Incrementing until Int.MaxValue; it may take a while!
-  for (i <- 1 to Int.MaxValue) {
-    counter.increment()
+// No Person class in Section 5.1 (“Simple Classes and Parameterless Methods”), on page 51.
+// Using the Person class in Section 5.2 (“Properties with Getters and Setters”), on page 53, instead.
+class Person (var age: Int = 0) {
+  if (age < 0) {
+    age = 0
   }
-  // Finally, let's increment once more to trigger the error message.
-  counter.increment()
 
 }

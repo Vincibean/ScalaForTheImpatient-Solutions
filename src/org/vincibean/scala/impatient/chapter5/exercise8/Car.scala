@@ -15,7 +15,7 @@
  *  along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter5.Exercise8
+package org.vincibean.scala.impatient.chapter5.exercise8
 
 /**
   * Make a class Car with read-only properties for manufacturer, model name,

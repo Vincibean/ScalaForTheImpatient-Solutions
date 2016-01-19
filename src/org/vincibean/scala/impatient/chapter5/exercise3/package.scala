@@ -18,14 +18,14 @@
 package org.vincibean.scala.impatient.chapter5
 
 /**
-  * Reimplement the Time class from the preceding exercise so that the internal
-  * representation is the number of minutes since midnight (between 0 and
-  * 24 × 60 – 1). Do not change the public interface. That is, client code should be
-  * unaffected by your change.
+  * Write a class Time with read-only properties hours and minutes and a method
+  * before(other: Time): Boolean that checks whether this time comes before the
+  * other. A Time object should be constructed as new Time(hrs, min) , where hrs is in
+  * military time format (between 0 and 23).
   *
   * Created by Vincibean on 18/01/16.
   */
-package object Exercise4 extends App {
+package object exercise3 extends App {
 
   val t1: Time = new Time(12, 12)
   val t2: Time = new Time(12, 13)

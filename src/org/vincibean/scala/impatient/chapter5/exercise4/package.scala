@@ -15,19 +15,21 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter5.Exercise6
+package org.vincibean.scala.impatient.chapter5
 
 /**
-  * In the Person class of Section 5.1, “Simple Classes and Parameterless Methods”,
-  * on page 51, provide a primary constructor that turns negative ages to 0.
+  * Reimplement the Time class from the preceding exercise so that the internal
+  * representation is the number of minutes since midnight (between 0 and
+  * 24 × 60 – 1). Do not change the public interface. That is, client code should be
+  * unaffected by your change.
   *
   * Created by Vincibean on 18/01/16.
   */
-// No Person class in Section 5.1 (“Simple Classes and Parameterless Methods”), on page 51.
-// Using the Person class in Section 5.2 (“Properties with Getters and Setters”), on page 53, instead.
-class Person (var age: Int = 0) {
-  if (age < 0) {
-    age = 0
-  }
+package object exercise4 extends App {
+
+  val t1: Time = new Time(12, 12)
+  val t2: Time = new Time(12, 13)
+  println(s"Is ${t1.hours}:${t1.minutes} before than ${t2.hours}:${t2.minutes}? ${t1.before(t2)}")
+  val t3: Time = new Time(25, 67)     // Throws IllegalArgumentException
 
 }

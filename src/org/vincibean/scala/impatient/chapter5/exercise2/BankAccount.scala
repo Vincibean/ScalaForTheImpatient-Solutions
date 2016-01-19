@@ -15,25 +15,36 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter5.Exercise1
+package org.vincibean.scala.impatient.chapter5.exercise2
 
 /**
-  * Improve the Counter class in Section 5.1, “Simple Classes and Parameterless
-  * Methods” on page 51 so that it doesn’t turn negative at Int.MaxValue .
+  * Write a class BankAccount with methods deposit and withdraw , and a read-only
+  * property balance.
   *
   * Created by Vincibean on 18/01/16.
   */
-class Counter {
+class BankAccount {
 
-  private var value = 0
+  // Initially, the account is empty.
+  private var balance: Int = 0
 
-  def increment() {
-    if (value < Int.MaxValue)
-      value += 1
-    else
-      println("You reached the max value!")
+  def currentBalance: Int = balance
+
+  def deposit(amount: Int): Unit = {
+    // Avoid negative deposits
+    if (amount > 0) {
+      balance += amount
+    }
   }
 
-  def current() = value
+  def withdraw(amount: Int): Int = {
+    // Avoid negative withdraws, but let the balance be negative.
+    if (amount > 0) {
+      balance -= amount
+      amount
+    } else {
+      0
+    }
+  }
 
 }

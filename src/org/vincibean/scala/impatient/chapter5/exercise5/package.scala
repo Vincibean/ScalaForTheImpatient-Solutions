@@ -24,7 +24,7 @@ package org.vincibean.scala.impatient.chapter5
   *
   * Created by Vincibean on 18/01/16.
   */
-package object Exercise5 extends App {
+package object exercise5 extends App {
 
   val student: Student = Student("Wesley Crusher", 10)
   println(s"Student name: ${student.name}")

@@ -15,21 +15,25 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter5
+package org.vincibean.scala.impatient.chapter5.exercise1
 
 /**
-  * Write a class Time with read-only properties hours and minutes and a method
-  * before(other: Time): Boolean that checks whether this time comes before the
-  * other. A Time object should be constructed as new Time(hrs, min) , where hrs is in
-  * military time format (between 0 and 23).
+  * Improve the Counter class in Section 5.1, “Simple Classes and Parameterless
+  * Methods” on page 51 so that it doesn’t turn negative at Int.MaxValue .
   *
   * Created by Vincibean on 18/01/16.
   */
-package object Exercise3 extends App {
+class Counter {
 
-  val t1: Time = new Time(12, 12)
-  val t2: Time = new Time(12, 13)
-  println(s"Is ${t1.hours}:${t1.minutes} before than ${t2.hours}:${t2.minutes}? ${t1.before(t2)}")
-  val t3: Time = new Time(25, 67)     // Throws IllegalArgumentException
+  private var value = 0
+
+  def increment() {
+    if (value < Int.MaxValue)
+      value += 1
+    else
+      println("You reached the max value!")
+  }
+
+  def current() = value
 
 }

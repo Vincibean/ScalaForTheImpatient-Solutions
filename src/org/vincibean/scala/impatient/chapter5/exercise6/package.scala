@@ -15,22 +15,21 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter5.Exercise3
+package org.vincibean.scala.impatient.chapter5
 
 /**
-  * Write a class Time with read-only properties hours and minutes and a method
-  * before(other: Time): Boolean that checks whether this time comes before the
-  * other. A Time object should be constructed as new Time(hrs, min) , where hrs is in
-  * military time format (between 0 and 23).
+  * In the Person class of Section 5.1, “Simple Classes and Parameterless Methods”,
+  * on page 51, provide a primary constructor that turns negative ages to 0.
   *
   * Created by Vincibean on 18/01/16.
   */
-class Time(val hours: Int, val minutes: Int) {
-  require(hours > 0 && hours < 24)
-  require(minutes > 0 && minutes < 60)
+package object exercise6 extends App {
 
-  private val asMinutes = hours * 60 + minutes
-
-  def before(other: Time): Boolean = other.asMinutes > this.asMinutes
+  val p1: Person = new Person(30)
+  println(s"First person's age should be 30; actual: ${p1.age}")
+  val p2: Person = new Person(0)
+  println(s"Second person's age should be 0; actual: ${p2.age}")
+  val p3: Person = new Person(-24)
+  println(s"Third person's age should be -24; actual: ${p3.age}")
 
 }

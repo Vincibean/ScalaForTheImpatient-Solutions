@@ -15,22 +15,21 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter5.Exercise7
+package org.vincibean.scala.impatient.chapter5
 
 /**
   * Write a class Person with a primary constructor that accepts a string containing
   * a first name, a space, and a last name, such as new Person("Fred Smith"). Supply
-  * read-only properties firstName and lastName. Should the primary constructor
+  * read-only properties firstName and lastName . Should the primary constructor
   * parameter be a var, a val, or a plain parameter? Why?
   *
-  * Created by Vincibean on 18/01/16.
+  * Created by Vincibean on 19/01/16.
   */
-class Person (nameAndLastName: String) {    // Make the primary constructor parameter a plain parameter: we don't want
-                                            // getters and setters to be created by the compiler.
-  private[this] val names = nameAndLastName.split(" ")
+package object exercise7 extends App {
 
-  val name: String = names.head
-
-  val lastName: String = names.last
+  val person: Person = new Person("Wesley Crusher")
+  println(s"Person name: ${person.name}")
+  println(s"Person last name: ${person.lastName}")
+  // println(s"Student ID: ${person.nameAndLastName}")    // Compile time error!
 
 }

@@ -23,7 +23,7 @@ package org.vincibean.scala.impatient.chapter5
   *
   * Created by Vincibean on 18/01/16.
   */
-package object Exercise2 extends App {
+package object exercise2 extends App {
 
   val bankAccount = new BankAccount
   println(s"Initial balance is ${bankAccount.currentBalance}")  // Expected: 0

@@ -15,7 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter5.Exercise9;
+package org.vincibean.scala.impatient.chapter5.exercise9;
 
 /**
  * Reimplement the class of the preceding exercise in Java, C#, or C++ (your
