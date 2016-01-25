@@ -17,9 +17,6 @@
 
 package org.vincibean.scala.impatient.chapter4
 
-import java.io.File
-
-import scala.collection.mutable
 import scala.io.Source
 
 /**
