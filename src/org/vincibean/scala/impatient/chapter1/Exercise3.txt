@@ -1,0 +1,6 @@
+Q:  Are the res variables val or var?
+
+A:  val. In fact, reassigning a res variable in the Scala REPL produces an error like the following:
+
+    <console>:17: error: reassignment to val
+           res2 = 5
