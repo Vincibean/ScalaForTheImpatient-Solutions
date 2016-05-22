@@ -1,0 +1,11 @@
+Q:  What is the value of an empty block expression {}? What is its type?
+
+A:  An empty block expression {} is of type Unit; in fact, in the Scala REPL, entering:
+
+    val v = {}
+
+    results in:
+
+    v: Unit = ()
+
+    Since the block expression is of type Unit, it has no actual value.
