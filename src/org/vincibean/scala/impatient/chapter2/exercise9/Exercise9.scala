@@ -17,16 +17,23 @@
 
 package org.vincibean.scala.impatient.chapter2
 
+import scala.io.StdIn
+
 /**
-  * Come up with one situation where the assignment x = y = 1 is valid in Scala.
-  * (Hint: Pick a suitable type for x .)
+  * Make the function of the preceding exercise a recursive function.
   *
   * Created by Vincibean on 11/01/16.
   */
-object Exercise3 extends App {
-  var x = ()
-  var y = 0
-  x = y = 1
-  println("Value of x: " + x)
-  println("Value of y: " + y)
+package object exercise9 extends App {
+
+  val string2multiply = StdIn.readLine("Enter the String to 'multiply': ")
+  println(s"The result of the multiplication is: ${product(string2multiply)}")
+
+  def product(string2multiply: String): Int = {
+    if (string2multiply.length == 0)
+      1
+    else
+      string2multiply.head.toInt * product(string2multiply.tail)
+  }
+
 }

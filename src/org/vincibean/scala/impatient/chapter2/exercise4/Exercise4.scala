@@ -17,25 +17,17 @@
 
 package org.vincibean.scala.impatient.chapter2
 
-import scala.io.StdIn
-
 /**
-  * Write a for loop for computing the product of the Unicode codes of all letters in a string.
-  * For example, the product of the characters in "Hello" is 825152896.
+  * Write a Scala equivalent for the Java loop:
+  * for (int i = 10; i >= 0; i--) System.out.println(i);
   *
   * Created by Vincibean on 11/01/16.
   */
-object Exercise6 extends App {
+package object exercise4 extends App {
 
-  val string2multiply = StdIn.readLine("Enter the String to 'multiply': ")
-  println(s"The result of the multiplication is: ${stringMultiplication(string2multiply)}")
-
-  def stringMultiplication(string2multiply: String) = {
-    var result = 1
-    for(char: Char <- string2multiply){
-      result *= char
-    }
-    result
-  }
+  println("One simple way: explicitly defining the step as -1")
+  for (i <- 10.to(0, -1)) println(i)
+  println("Another simple way: reversing the Range")
+  for (i <- (1 to 10).reverse) println(i)
 
 }

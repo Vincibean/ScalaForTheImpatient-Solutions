@@ -17,17 +17,25 @@
 
 package org.vincibean.scala.impatient.chapter2
 
-import scala.io.StdIn
-
 /**
-  * Solve the preceding exercise without writing a loop.
-  * (Hint: Look at the StringOps Scaladoc.)
+  * The signum of a number is 1 if the number is positive, –1 if it is negative, and
+  * 0 if it is zero. Write a function that computes this value.
   *
   * Created by Vincibean on 11/01/16.
   */
-object Exercise7 extends App {
+package object exercise1 extends App {
 
-  val string2multiply = StdIn.readLine("Enter the String to 'multiply': ")
-  println(s"The result of the multiplication is: ${string2multiply.map(_.toInt).product}")
+  println("Signum of number -23: " + signum(-23))
+  println("Signum of number 46: " + signum(46))
+  println("Signum of number 0: " + signum(0))
+
+  def signum(value: Int) = {
+    if (value > 0)
+      1
+    else if (value < 0)
+      -1
+    else
+      0
+  }
 
 }

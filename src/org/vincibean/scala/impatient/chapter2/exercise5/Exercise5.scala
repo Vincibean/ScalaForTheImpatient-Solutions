@@ -20,16 +20,21 @@ package org.vincibean.scala.impatient.chapter2
 import scala.io.StdIn
 
 /**
-  * Write a function product(s : String) that computes the product, as described
-  * in the preceding exercises.
+  * Write a procedure countdown(n: Int) that prints the numbers from n to 0.
   *
   * Created by Vincibean on 11/01/16.
   */
-object Exercise8 extends App {
+package object exercise5 extends App {
 
-  val string2multiply = StdIn.readLine("Enter the String to 'multiply': ")
-  println(s"The result of the multiplication is: ${product(string2multiply)}")
+  print("Select an integer number > 0: ")
+  val start = StdIn.readInt()
+  // TODO Check that start > 0
+  println()
+  println("Starting countdown")
+  countdown(start)
+  println("BOOOOM!!")
 
-  def product(string2multiply: String) = string2multiply.map(_.toInt).product
+  // TODO Check that n > 0
+  def countdown(n: Int) = n.to(0, -1).foreach(println(_))
 
 }

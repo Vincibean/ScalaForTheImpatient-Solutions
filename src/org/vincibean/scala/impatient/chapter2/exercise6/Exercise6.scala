@@ -20,21 +20,22 @@ package org.vincibean.scala.impatient.chapter2
 import scala.io.StdIn
 
 /**
-  * Write a procedure countdown(n: Int) that prints the numbers from n to 0.
+  * Write a for loop for computing the product of the Unicode codes of all letters in a string.
+  * For example, the product of the characters in "Hello" is 825152896.
   *
   * Created by Vincibean on 11/01/16.
   */
-object Exercise5 extends App {
+package object exercise6 extends App {
 
-  print("Select an integer number > 0: ")
-  val start = StdIn.readInt()
-  // TODO Check that start > 0
-  println()
-  println("Starting countdown")
-  countdown(start)
-  println("BOOOOM!!")
+  val string2multiply = StdIn.readLine("Enter the String to 'multiply': ")
+  println(s"The result of the multiplication is: ${stringMultiplication(string2multiply)}")
 
-  // TODO Check that n > 0
-  def countdown(n: Int) = n.to(0, -1).foreach(println(_))
+  def stringMultiplication(string2multiply: String) = {
+    var result = 1
+    for(char: Char <- string2multiply){
+      result *= char
+    }
+    result
+  }
 
 }

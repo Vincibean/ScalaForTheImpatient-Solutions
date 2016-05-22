@@ -17,24 +17,19 @@
 
 package org.vincibean.scala.impatient.chapter2
 
+import scala.io.StdIn
+
 /**
-  * The signum of a number is 1 if the number is positive, –1 if it is negative, and
-  * 0 if it is zero. Write a function that computes this value.
+  * Write a function product(s : String) that computes the product, as described
+  * in the preceding exercises.
   *
   * Created by Vincibean on 11/01/16.
   */
-object Exercise1 extends App {
-  println("Signum of number -23: " + signum(-23))
-  println("Signum of number 46: " + signum(46))
-  println("Signum of number 0: " + signum(0))
+package object exercise8 extends App {
 
-  def signum(value: Int) = {
-    if (value > 0)
-      1
-    else if (value < 0)
-      -1
-    else
-      0
-  }
+  val string2multiply = StdIn.readLine("Enter the String to 'multiply': ")
+  println(s"The result of the multiplication is: ${product(string2multiply)}")
+
+  def product(string2multiply: String) = string2multiply.map(_.toInt).product
 
 }
