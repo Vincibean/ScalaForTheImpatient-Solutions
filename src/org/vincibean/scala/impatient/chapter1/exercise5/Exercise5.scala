@@ -17,18 +17,17 @@
 
 package org.vincibean.scala.impatient.chapter1
 
-import scala.math.BigInt._
-import scala.util.Random
-
 /**
-  * How do you get the first character of a string in Scala? The last character?
+  * What does 10 max 2 mean?
+  * Returns 10 if 10 > 2; otherwise returns 2.
+  *
+  * In which class is the max method defined?
+  * RichInt
   *
   * Created by Vincibean on 11/01/16.
   */
-object Exercise9 extends App {
-  // Taking the solution of the previous exercise in order to have a randomly generated String.
-  val inputString = probablePrime(100, Random).toString(radix = 36)
-  println("Taking as input the String " + inputString)
-  println("Its first character is: " + inputString.head)
-  println("Its last character is: " + inputString.last)
+package object exercise5 extends App {
+
+  println(10 max 2)
+
 }

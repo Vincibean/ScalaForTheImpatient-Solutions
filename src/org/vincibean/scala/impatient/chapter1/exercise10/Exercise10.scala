@@ -24,7 +24,8 @@ package org.vincibean.scala.impatient.chapter1
   *
   * Created by Vincibean on 11/01/16.
   */
-object Exercise10 extends App {
+package object exercise10 extends App {
+
   val inputString = "My Input String"
   println("Using String: " + inputString)
   println()
@@ -45,4 +46,5 @@ object Exercise10 extends App {
   println("Using 'dropRight(3)': " + inputString.dropRight(3))
   println("Starting from the right (i.e. the end of the String), drops the first 3 characters of the String. " +
     "In other words, this method drops the last 3 characters of the String.")
+
 }
