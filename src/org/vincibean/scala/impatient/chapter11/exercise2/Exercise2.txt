@@ -2,5 +2,6 @@ Q:  The BigInt class has a pow method, not an operator. Why didn't the Scala lib
     designers choose ** (as in Fortran) or ^ (as in Pascal) for a power operator?
 
 A:  In Scala, operator precedence is determined by the 1st character of the operator name; hence, for **, the
-    multiplication operator, *, would take precedence, which of course would be mathematically incorrect.
+    multiplication operator, *, would take precedence, which of course would be mathematically incorrect; moreover,
+    operators starting with a letter take precedence over operators starting with a symbol like *.
     As for ^, BigInt already has such an operator: it's the Bitwise exclusive-or of BigInts.
