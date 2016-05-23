@@ -23,7 +23,7 @@ package org.vincibean.scala.impatient.chapter4
   *
   * Created by Vincibean on 17/01/16.
   */
-object Exercise8 extends App{
+package object exercise8 extends App{
 
   val valuesArray = Array(1, 2, 3, 4, 5, 6, 7, 8, 11)
   println(s"Testing with array: ${valuesArray.mkString(", ")}")

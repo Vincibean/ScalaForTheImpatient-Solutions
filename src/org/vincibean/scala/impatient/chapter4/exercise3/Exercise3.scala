@@ -17,28 +17,20 @@
 
 package org.vincibean.scala.impatient.chapter4
 
-import java.util.Calendar._
-
-import scala.collection.mutable
+import scala.io.Source
 
 /**
-  * Define a linked hash map that maps "Monday" to java.util.Calendar.MONDAY, and
-  * similarly for the other weekdays. Demonstrate that the elements are visited
-  * in insertion order.
+  * Repeat the preceding exercise with an immutable map.
   *
   * Created by Vincibean on 17/01/16.
   */
-object Exercise6 extends App {
+package object exercise3 extends App {
 
-  val weekDays = mutable.LinkedHashMap(
-    "Sunday" -> SUNDAY,
-    "Monday" -> MONDAY,
-    "Tuesday" -> TUESDAY,
-    "Wednesday" -> WEDNESDAY,
-    "Thursday" -> THURSDAY,
-    "Friday" -> FRIDAY,
-    "Saturday" -> SATURDAY)
-  // Results will be printed in insertion order.
-  println(weekDays.mkString(", "))
+  // Using the Scalaesque way.
+  var wordCount = Map.empty[String, Int] withDefaultValue 0
+  for(word <- Source.fromFile("resources/chapter4/Exercise2.txt").mkString.split("\\s+")) {
+    wordCount = wordCount + (word -> (wordCount(word) + 1))
+  }
+  println(wordCount.mkString(", "))
 
 }

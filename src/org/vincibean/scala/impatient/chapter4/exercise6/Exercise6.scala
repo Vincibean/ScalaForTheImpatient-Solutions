@@ -17,19 +17,28 @@
 
 package org.vincibean.scala.impatient.chapter4
 
+import java.util.Calendar._
+
+import scala.collection.mutable
+
 /**
-  * Write a function lteqgt(values: Array[Int], v: Int) that returns a triple containing
-  * the counts of values less than v, equal to v, and greater than v.
+  * Define a linked hash map that maps "Monday" to java.util.Calendar.MONDAY, and
+  * similarly for the other weekdays. Demonstrate that the elements are visited
+  * in insertion order.
   *
   * Created by Vincibean on 17/01/16.
   */
-object Exercise9 extends App{
+package object exercise6 extends App {
 
-  val valuesArray = Array(1, 2, 3, 4, 5, 6, 7, 8, 11)
-  val v = 6
-  println(s"Testing with value $v and array: ${valuesArray.mkString(", ")}")
-  println(s"Result is: ${lteqgt(valuesArray, v)}")
-  
-  def lteqgt(values: Array[Int], v: Int): (Int, Int, Int) = (values.count(_ < v), values.count(_ == v), values.count(_ > v))
+  val weekDays = mutable.LinkedHashMap(
+    "Sunday" -> SUNDAY,
+    "Monday" -> MONDAY,
+    "Tuesday" -> TUESDAY,
+    "Wednesday" -> WEDNESDAY,
+    "Thursday" -> THURSDAY,
+    "Friday" -> FRIDAY,
+    "Saturday" -> SATURDAY)
+  // Results will be printed in insertion order.
+  println(weekDays.mkString(", "))
 
 }

@@ -25,7 +25,7 @@ import scala.io.Source
   *
   * Created by Vincibean on 17/01/16.
   */
-object Exercise5 extends App {
+package object exercise5 extends App {
 
   // Using the Scalaesque way.
   val wordCount = new java.util.TreeMap[String, Int]

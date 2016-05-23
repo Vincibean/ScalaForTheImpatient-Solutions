@@ -17,20 +17,14 @@
 
 package org.vincibean.scala.impatient.chapter4
 
-import scala.io.Source
-
 /**
-  * Repeat the preceding exercise with an immutable map.
+  * Set up a map of prices for a number of gizmos that you covet. Then produce
+  * a second map with the same keys and the prices at a 10 percent discount.
   *
-  * Created by Vincibean on 17/01/16.
+  * Created by Vincibean on 16/01/16.
   */
-object Exercise3 extends App {
+package object exercise1 extends App {
 
-  // Using the Scalaesque way.
-  var wordCount = Map.empty[String, Int] withDefaultValue 0
-  for(word <- Source.fromFile("resources/chapter4/Exercise2.txt").mkString.split("\\s+")) {
-    wordCount = wordCount + (word -> (wordCount(word) + 1))
-  }
-  println(wordCount.mkString(", "))
+  println(Map("CPU" -> 327, "Hard Drive" -> 123, "Keyboard" -> 30, "Joystick" -> 45).mapValues(_ * 90 / 100).mkString(", "))
 
 }

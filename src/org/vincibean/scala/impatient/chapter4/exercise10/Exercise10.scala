@@ -18,13 +18,16 @@
 package org.vincibean.scala.impatient.chapter4
 
 /**
-  * Set up a map of prices for a number of gizmos that you covet. Then produce
-  * a second map with the same keys and the prices at a 10 percent discount.
+  * What happens when you zip together two strings, such as "Hello".zip("World") ?
+  * Come up with a plausible use case.
   *
-  * Created by Vincibean on 16/01/16.
+  * Created by Vincibean on 17/01/16.
   */
-object Exercise1 extends App {
+package object exercise10 extends App {
 
-  println(Map("CPU" -> 327, "Hard Drive" -> 123, "Keyboard" -> 30, "Joystick" -> 45).mapValues(_ * 90 / 100).mkString(", "))
+  // Let's come up with a use case similar to the one proposed in the first exercise of the chapter.
+  val gizmos = List("CPU", "Hard Drive", "Keyboard", "Joystick")
+  val prices = List(327, 123, 30, 45)
+  println((gizmos zip prices).mkString(", "))
 
 }

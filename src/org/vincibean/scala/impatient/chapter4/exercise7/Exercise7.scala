@@ -34,7 +34,7 @@ import scala.collection.JavaConversions.propertiesAsScalaMap
   *
   * Created by Vincibean on 17/01/16.
   */
-object Exercise7 extends App {
+package object exercise7 extends App {
 
   val properties: scala.collection.mutable.Map[String, String] = System.getProperties
 
