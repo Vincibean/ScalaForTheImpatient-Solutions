@@ -17,24 +17,19 @@
 
 package org.vincibean.scala.impatient.chapter3
 
-import scala.collection.mutable
-
 /**
-  * How do you rearrange the elements of an Array[Int] so that they appear in reverse sorted order?
-  * How do you do the same with an ArrayBuffer[Int]?
+  * Given an array of integers, produce a new array that contains all positive
+  * values of the original array, in their original order, followed by all values that
+  * are zero or negative, in their original order.
   *
   * Created by Vincibean on 12/01/16.
   */
-object Exercise6 extends App {
+package object exercise4 extends App {
 
-  val initialArray = Array(1.0, 2.0, -12.0)
+  val initialArray = Array(1, 2, 0, -4, 3, -98, 12, 0, -3)
   println(s"Initial Array: ${initialArray.mkString(", ")}")
-  println(s"Reverse Sorted Order: ${initialArray.sortWith( _ > _).mkString(", ")}")
-  println()
-  val initialArrayBuffer = mutable.Buffer(1, -10, 3, 4, 8, 2, 5)
-  println(s"Initial Array: ${initialArrayBuffer.mkString(", ")}")
-  println(s"Reverse Sorted Order: ${initialArrayBuffer.sortWith( _ > _)}")
+  println(s"Rearranged Array: ${rearrangePositivesAndNegatives(initialArray).mkString(", ")}")
 
-
+  def rearrangePositivesAndNegatives(inputArray: Array[Int]): Array[Int] = inputArray.filter(_ > 0) ++  inputArray.filter(_ <= 0)
 
 }

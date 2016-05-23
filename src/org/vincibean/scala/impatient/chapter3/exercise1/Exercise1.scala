@@ -26,7 +26,7 @@ import scala.util.Random
   *
   * Created by Vincibean on 12/01/16.
   */
-object Exercise1 extends App {
+package object exercise1 extends App {
 
   print("Choose any integer value > 0: ")
   val chosenNumber = StdIn.readInt()

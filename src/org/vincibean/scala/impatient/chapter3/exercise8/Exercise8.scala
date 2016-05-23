@@ -33,7 +33,7 @@ import scala.collection.mutable.ArrayBuffer
   *
   * Created by Vincibean on 12/01/16.
   */
-object Exercise8 extends App {
+package object exercise8 extends App {
 
   val initialArray = ArrayBuffer(1, 2, -12, 1, -2, -12, -12, 1, -2)
   println(s"Initial Array: ${initialArray.mkString(", ")}")

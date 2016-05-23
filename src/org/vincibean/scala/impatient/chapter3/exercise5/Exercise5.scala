@@ -22,7 +22,7 @@ package org.vincibean.scala.impatient.chapter3
   *
   * Created by Vincibean on 12/01/16.
   */
-object Exercise5 extends App {
+package object exercise5 extends App {
 
   val initialArray = Array(1.0, 2.0, -12.0)
   println(s"Initial Array: ${initialArray.mkString(", ")}")

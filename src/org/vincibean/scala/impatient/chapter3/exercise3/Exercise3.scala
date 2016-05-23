@@ -23,7 +23,7 @@ package org.vincibean.scala.impatient.chapter3
   *
   * Created by Vincibean on 12/01/16.
   */
-object Exercise3 extends App {
+package object exercise3 extends App {
 
   val initialArray = Array(1, 2, 3, 4, 5)
   println(s"Starting with Array${initialArray.mkString("(", ", ", ")")}")

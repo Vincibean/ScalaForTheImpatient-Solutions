@@ -17,16 +17,23 @@
 
 package org.vincibean.scala.impatient.chapter3
 
-/**
-  * Write a code snippet that produces all values from an array with duplicates removed.
-  * (Hint: Look at Scaladoc.)
-  *
-  * Created by Vincibean on 12/01/16.
-  */
-object Exercise7 extends App {
+import java.util.TimeZone.getAvailableIDs
 
-  val initialArray = Array(1, 2, -12, 1, 2, 12, 12, 1, 2)
-  println(s"Initial Array: ${initialArray.mkString(", ")}")
-  println(s"Distinct Values: ${initialArray.distinct.mkString(", ")}")
+/**
+  * Make a collection of all time zones returned by java.util.TimeZone.getAvailableIDs that are in America.
+  * Strip off the "America/" prefix and sort the result.
+  *
+  * Created by Vincibean on 13/01/16.
+  */
+package object exercise9 extends App {
+
+  println(getAvailableIDs.filter(_.contains("America/")).map(_.substring(8)).sorted.mkString(", "))
+  println("Using another approach: regular expressions.")
+  val americanIds = for {
+    id <- getAvailableIDs
+    j = """(?<=America/)([A-Za-z/_-]+)""".r findFirstIn id if j.isDefined
+  }
+    yield j.get
+  println(americanIds.sorted.mkString(", "))
 
 }

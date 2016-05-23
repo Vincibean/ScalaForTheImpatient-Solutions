@@ -25,7 +25,7 @@ import scala.collection.mutable.ArrayBuffer
   *
   * Created by Vincibean on 12/01/16.
   */
-object Exercise2 extends App {
+package object exercise2 extends App {
 
   val initialArray = ArrayBuffer(1, 2, 3, 4, 5)
   println(s"Starting with Array${initialArray.mkString("(", ", ", ")")}")

@@ -31,9 +31,11 @@ import scala.collection.mutable
   *
   * Created by Vincibean on 13/01/16.
   */
-object Exercise10 extends App {
+package object exercise10 extends App {
+
   val flavors = SystemFlavorMap.getDefaultFlavorMap.asInstanceOf[SystemFlavorMap]
   val flavorsBuffer : mutable.Buffer[String] = flavors.getNativesForFlavor(DataFlavor.imageFlavor)
   println("Did we really manage to turn a java.util.List to a scala.collection.mutable.Buffer? " +
     s"${flavorsBuffer.isInstanceOf[mutable.Buffer[String]]}")
+
 }
