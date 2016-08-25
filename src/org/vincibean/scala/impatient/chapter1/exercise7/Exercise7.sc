@@ -15,19 +15,12 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter1
+// What do you need to import so that you can get a random prime as
+// probablePrime(100, Random), without any qualifiers before probablePrime and Random?
 
-/**
-  * What does 10 max 2 mean?
-  * Returns 10 if 10 > 2; otherwise returns 2.
-  *
-  * In which class is the max method defined?
-  * RichInt
-  *
-  * Created by Vincibean on 11/01/16.
-  */
-package object exercise5 extends App {
+// As a minimum, BigInt.probablePrime and scala.util.Random.
+import scala.math.BigInt.probablePrime
+import scala.util.Random
 
-  println(10 max 2)
-
-}
+// Let's see it working
+println(probablePrime(100, Random))

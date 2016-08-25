@@ -15,15 +15,9 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter1
+// What does 10 max 2 mean?
+println(10 max 2) // Returns 10 if 10 > 2; otherwise returns 2.
 
-/**
-  * Using BigInt, compute 2 exp 1024.
-  *
-  * Created by Vincibean on 11/01/16.
-  */
-package object exercise6 extends App {
+// In which class is the max method defined?
+// RichInt
 
-  println(BigInt(2) pow 1024)
-
-}

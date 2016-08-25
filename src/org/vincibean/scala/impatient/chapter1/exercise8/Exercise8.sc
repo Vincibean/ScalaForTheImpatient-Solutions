@@ -15,21 +15,12 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter1
-
-import scala.math.BigInt.probablePrime
+import scala.math.BigInt._
 import scala.util.Random
 
-/**
-  * One way to create random file or directory names is to produce a random
-  * BigInt and convert it to base 36, yielding a string such as "qsnvbevtomcj38o06kul".
-  * Poke around Scaladoc to find a way of doing this in Scala.
-  *
-  * Created by Vincibean on 11/01/16.
-  */
-package object exercise8 extends App {
+// One way to create random file or directory names is to produce a random
+// BigInt and convert it to base 36, yielding a string such as "qsnvbevtomcj38o06kul".
+// Poke around Scaladoc to find a way of doing this in Scala.
 
-  // Using probablePrime as in the previous exercise gives Strings that are closer to the example.
-  println(probablePrime(100, Random).toString(radix = 36))
-
-}
+// Using probablePrime as in the previous exercise gives Strings that are closer to the example.
+println(probablePrime(100, Random).toString(radix = 36))
