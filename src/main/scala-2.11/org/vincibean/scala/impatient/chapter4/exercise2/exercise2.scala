@@ -35,7 +35,7 @@ package object exercise2 {
 
   // Using the "Scalaesque" way.
   def resourceAsStringArray: Array[String] = Source
-    .fromInputStream(getClass.getClassLoader.getResourceAsStream("Exercise2"))
+    .fromInputStream(getClass.getClassLoader.getResourceAsStream("chapter4/Exercise2.txt"))
     .getLines()
     .toList
     .mkString
