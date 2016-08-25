@@ -15,21 +15,10 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter5
+import org.vincibean.scala.impatient.chapter5.exercise3.Time
 
-/**
-  * Reimplement the Time class from the preceding exercise so that the internal
-  * representation is the number of minutes since midnight (between 0 and
-  * 24 × 60 – 1). Do not change the public interface. That is, client code should be
-  * unaffected by your change.
-  *
-  * Created by Vincibean on 18/01/16.
-  */
-package object exercise4 extends App {
-
-  val t1: Time = new Time(12, 12)
-  val t2: Time = new Time(12, 13)
-  println(s"Is ${t1.hours}:${t1.minutes} before than ${t2.hours}:${t2.minutes}? ${t1.before(t2)}")
-  val t3: Time = new Time(25, 67)     // Throws IllegalArgumentException
-
-}
+// Testing the Time object
+val t1: Time = new Time(12, 12)
+val t2: Time = new Time(12, 13)
+println(s"Is ${t1.hours}:${t1.minutes} before than ${t2.hours}:${t2.minutes}? ${t1.before(t2)}")
+val t3: Time = new Time(25, 67)     // Throws IllegalArgumentException

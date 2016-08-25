@@ -15,22 +15,10 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter5
+import org.vincibean.scala.impatient.chapter5.exercise4.Time
 
-/**
-  * Improve the Counter class in Section 5.1, “Simple Classes and Parameterless
-  * Methods” on page 51 so that it doesn’t turn negative at Int.MaxValue .
-  *
-  * Created by Vincibean on 18/01/16.
-  */
-package object exercise1 extends App {
-
-  val counter = new Counter
-  // Incrementing until Int.MaxValue; it may take a while!
-  for (i <- 1 to Int.MaxValue) {
-    counter.increment()
-  }
-  // Finally, let's increment once more to trigger the error message.
-  counter.increment()
-
-}
+// Testing the Time object
+val t1: Time = new Time(12, 12)
+val t2: Time = new Time(12, 13)
+println(s"Is ${t1.hours}:${t1.minutes} before than ${t2.hours}:${t2.minutes}? ${t1.before(t2)}")
+val t3: Time = new Time(25, 67)     // Throws IllegalArgumentException

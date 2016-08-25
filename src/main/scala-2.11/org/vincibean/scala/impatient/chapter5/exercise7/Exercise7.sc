@@ -15,21 +15,10 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter5
+import org.vincibean.scala.impatient.chapter5.exercise7.Person
 
-/**
-  * In the Person class of Section 5.1, “Simple Classes and Parameterless Methods”,
-  * on page 51, provide a primary constructor that turns negative ages to 0.
-  *
-  * Created by Vincibean on 18/01/16.
-  */
-package object exercise6 extends App {
-
-  val p1: Person = new Person(30)
-  println(s"First person's age should be 30; actual: ${p1.age}")
-  val p2: Person = new Person(0)
-  println(s"Second person's age should be 0; actual: ${p2.age}")
-  val p3: Person = new Person(-24)
-  println(s"Third person's age should be -24; actual: ${p3.age}")
-
-}
+// Testing the Person object
+val person: Person = new Person("Wesley Crusher")
+println(s"Person name: ${person.name}")
+println(s"Person last name: ${person.lastName}")
+// println(s"Student ID: ${person.nameAndLastName}")    // Compile time error!

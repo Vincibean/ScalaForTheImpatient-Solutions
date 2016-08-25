@@ -15,21 +15,13 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter5
+import org.vincibean.scala.impatient.chapter5.exercise1.Counter
 
-/**
-  * Write a class Person with a primary constructor that accepts a string containing
-  * a first name, a space, and a last name, such as new Person("Fred Smith"). Supply
-  * read-only properties firstName and lastName . Should the primary constructor
-  * parameter be a var, a val, or a plain parameter? Why?
-  *
-  * Created by Vincibean on 19/01/16.
-  */
-package object exercise7 extends App {
-
-  val person: Person = new Person("Wesley Crusher")
-  println(s"Person name: ${person.name}")
-  println(s"Person last name: ${person.lastName}")
-  // println(s"Student ID: ${person.nameAndLastName}")    // Compile time error!
-
+// Testing the Counter
+val counter = new Counter
+// Incrementing until Int.MaxValue; it may take a while!
+for (i <- 1 to Int.MaxValue) {
+  counter.increment()
 }
+// Finally, let's increment once more to trigger the error message.
+counter.increment()
