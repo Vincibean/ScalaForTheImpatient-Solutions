@@ -15,23 +15,11 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter4
-
+import org.vincibean.scala.impatient.chapter4.exercise2.resourceAsStringArray
 import scala.collection.JavaConversions.mapAsScalaMap
-import scala.io.Source
 
-/**
-  * Repeat the preceding exercise with a java.util.TreeMap that you adapt to the Scala API.
-  *
-  * Created by Vincibean on 17/01/16.
-  */
-package object exercise5 extends App {
-
-  // Using the Scalaesque way.
-  val wordCount = new java.util.TreeMap[String, Int]
-  for(word <- Source.fromFile("resources/chapter4/Exercise2.txt").mkString.split("\\s+")) {
-    wordCount.put(word, wordCount.getOrDefault(word, 0) + 1)
-  }
-  println(wordCount.mkString(", "))
-
-}
+// Repeat the preceding exercise with a java.util.TreeMap that you adapt to the Scala API.
+val wordCount = new java.util.TreeMap[String, Int]
+for (word <- resourceAsStringArray)
+  wordCount.put(word, wordCount.getOrDefault(word, 0) + 1)
+println(wordCount.mkString(", "))

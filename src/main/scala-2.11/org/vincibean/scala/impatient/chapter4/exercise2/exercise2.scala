@@ -31,12 +31,15 @@ import scala.io.Source
   *
   * Created by Vincibean on 16/01/16.
   */
-package object exercise2 extends App {
+package object exercise2 {
 
-  // Using the Scalaesque way.
-  val wordCount = scala.collection.mutable.HashMap.empty[String, Int] withDefaultValue 0
-  for(word <- Source.fromFile("resources/chapter4/Exercise2.txt").mkString.split("\\s+"))
-    wordCount(word) += 1
-  println(wordCount.mkString(", "))
+  // Using the "Scalaesque" way.
+  def resourceAsStringArray: Array[String] = Source
+    .fromInputStream(getClass.getClassLoader.getResourceAsStream("Exercise2"))
+    .getLines()
+    .toList
+    .mkString
+    .split("\\s+")
+    .map(_.toLowerCase)
 
 }

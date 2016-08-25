@@ -15,19 +15,10 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter4
+// What happens when you zip together two strings, such as "Hello".zip("World") ?
+// Come up with a plausible use case.
 
-/**
-  * What happens when you zip together two strings, such as "Hello".zip("World") ?
-  * Come up with a plausible use case.
-  *
-  * Created by Vincibean on 17/01/16.
-  */
-package object exercise10 extends App {
-
-  // Let's come up with a use case similar to the one proposed in the first exercise of the chapter.
-  val gizmos = List("CPU", "Hard Drive", "Keyboard", "Joystick")
-  val prices = List(327, 123, 30, 45)
-  println((gizmos zip prices).mkString(", "))
-
-}
+// Let's come up with a use case similar to the one proposed in the first exercise of the chapter.
+val gizmos = List("CPU", "Hard Drive", "Keyboard", "Joystick")
+val prices = List(327, 123, 30, 45)
+println((gizmos zip prices).mkString(", "))

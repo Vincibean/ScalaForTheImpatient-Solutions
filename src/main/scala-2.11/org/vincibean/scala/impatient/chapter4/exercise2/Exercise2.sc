@@ -15,20 +15,11 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter4
+import org.vincibean.scala.impatient.chapter4.exercise2.resourceAsStringArray
+import scala.collection.mutable
 
-/**
-  * Write a function minmax(values: Array[Int]) that returns a pair containing the
-  * smallest and largest values in the array.
-  *
-  * Created by Vincibean on 17/01/16.
-  */
-package object exercise8 extends App{
-
-  val valuesArray = Array(1, 2, 3, 4, 5, 6, 7, 8, 11)
-  println(s"Testing with array: ${valuesArray.mkString(", ")}")
-  println(s"Minimum and maximum of the array: ${minmax(valuesArray)}")
-
-  def minmax(values: Array[Int]): (Int, Int) = (values.min, values.max)
-
-}
+// Using the Scalaesque way (as defined in the resourceAsStringArray() function).
+val wordCount = mutable.HashMap.empty[String, Int] withDefaultValue 0
+for (word <- resourceAsStringArray)
+  wordCount(word) += 1
+println(wordCount.mkString(", "))

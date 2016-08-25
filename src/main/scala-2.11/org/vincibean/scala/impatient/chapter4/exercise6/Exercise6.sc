@@ -15,30 +15,19 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter4
-
 import java.util.Calendar._
-
 import scala.collection.mutable
 
-/**
-  * Define a linked hash map that maps "Monday" to java.util.Calendar.MONDAY, and
-  * similarly for the other weekdays. Demonstrate that the elements are visited
-  * in insertion order.
-  *
-  * Created by Vincibean on 17/01/16.
-  */
-package object exercise6 extends App {
-
-  val weekDays = mutable.LinkedHashMap(
-    "Sunday" -> SUNDAY,
-    "Monday" -> MONDAY,
-    "Tuesday" -> TUESDAY,
-    "Wednesday" -> WEDNESDAY,
-    "Thursday" -> THURSDAY,
-    "Friday" -> FRIDAY,
-    "Saturday" -> SATURDAY)
-  // Results will be printed in insertion order.
-  println(weekDays.mkString(", "))
-
-}
+// Define a linked hash map that maps "Monday" to java.util.Calendar.MONDAY, and
+// similarly for the other weekdays. Demonstrate that the elements are visited
+// in insertion order.
+val weekDays = mutable.LinkedHashMap(
+  "Sunday" -> SUNDAY,
+  "Monday" -> MONDAY,
+  "Tuesday" -> TUESDAY,
+  "Wednesday" -> WEDNESDAY,
+  "Thursday" -> THURSDAY,
+  "Friday" -> FRIDAY,
+  "Saturday" -> SATURDAY)
+// Results will be printed in insertion order.
+println(weekDays.mkString(", "))
