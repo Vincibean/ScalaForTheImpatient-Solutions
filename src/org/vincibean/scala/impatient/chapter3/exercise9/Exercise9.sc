@@ -15,25 +15,14 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter3
+import java.util.TimeZone._
 
-import java.util.TimeZone.getAvailableIDs
-
-/**
-  * Make a collection of all time zones returned by java.util.TimeZone.getAvailableIDs that are in America.
-  * Strip off the "America/" prefix and sort the result.
-  *
-  * Created by Vincibean on 13/01/16.
-  */
-package object exercise9 extends App {
-
-  println(getAvailableIDs.filter(_.contains("America/")).map(_.substring(8)).sorted.mkString(", "))
-  println("Using another approach: regular expressions.")
-  val americanIds = for {
-    id <- getAvailableIDs
-    j = """(?<=America/)([A-Za-z/_-]+)""".r findFirstIn id if j.isDefined
-  }
-    yield j.get
-  println(americanIds.sorted.mkString(", "))
-
-}
+// Make a collection of all time zones returned by java.util.TimeZone.getAvailableIDs that are in America.
+// Strip off the "America/" prefix and sort the result.
+println(getAvailableIDs.filter(_.contains("America/")).map(_.substring(8)).sorted.mkString(", "))
+println("Using another approach: regular expressions.")
+val americanIds = for {
+  id <- getAvailableIDs
+  j = """(?<=America/)([A-Za-z/_-]+)""".r findFirstIn id if j.isDefined
+} yield j.get
+println(americanIds.sorted.mkString(", "))

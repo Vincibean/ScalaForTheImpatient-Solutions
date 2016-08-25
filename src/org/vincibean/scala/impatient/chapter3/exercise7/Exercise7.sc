@@ -15,21 +15,8 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter3
-
-/**
-  * Given an array of integers, produce a new array that contains all positive
-  * values of the original array, in their original order, followed by all values that
-  * are zero or negative, in their original order.
-  *
-  * Created by Vincibean on 12/01/16.
-  */
-package object exercise4 extends App {
-
-  val initialArray = Array(1, 2, 0, -4, 3, -98, 12, 0, -3)
-  println(s"Initial Array: ${initialArray.mkString(", ")}")
-  println(s"Rearranged Array: ${rearrangePositivesAndNegatives(initialArray).mkString(", ")}")
-
-  def rearrangePositivesAndNegatives(inputArray: Array[Int]): Array[Int] = inputArray.filter(_ > 0) ++  inputArray.filter(_ <= 0)
-
-}
+// Write a code snippet that produces all values from an array with duplicates removed.
+// (Hint: Look at Scaladoc.)
+val initialArray = Array(1, 2, -12, 1, 2, 12, 12, 1, 2)
+println(s"Initial Array: ${initialArray.mkString(", ")}")
+println(s"Distinct Values: ${initialArray.distinct.mkString(", ")}")

@@ -23,26 +23,7 @@ package org.vincibean.scala.impatient.chapter3
   *
   * Created by Vincibean on 12/01/16.
   */
-package object exercise3 extends App {
-
-  val initialArray = Array(1, 2, 3, 4, 5)
-  println(s"Starting with Array${initialArray.mkString("(", ", ", ")")}")
-  println("Swapping the Array!")
-  val array2ndPhase = swappedArrayOf(initialArray)
-  println(s"Array now is: Array${array2ndPhase.mkString("(", ", ", ")")}")
-  println("Swapping again!")
-  val array3rdPhase = swapBySlicingArrayOf(array2ndPhase)
-  println(s"Array now is: Array${array3rdPhase.mkString("(", ", ", ")")}")
-
-  val anotherArray = Array(9, 8, 7, 6)
-  println(s"Starting with Array${anotherArray.mkString("(", ", ", ")")}")
-  println("Swapping the Array!")
-  val anotherArray2ndPhase = swappedArrayOf(anotherArray)
-  println(s"Array now is: Array${anotherArray2ndPhase.mkString("(", ", ", ")")}")
-  println("Swapping again!")
-  val anotherArray3rdPhase = swapBySlicingArrayOf(anotherArray2ndPhase)
-  println(s"Array now is: Array${anotherArray3rdPhase.mkString("(", ", ", ")")}")
-
+package object exercise3 {
 
   def swappedArrayOf(inputArray: Array[Int]): Array[Int] = {
     val swappedVector = for {
@@ -59,7 +40,7 @@ package object exercise3 extends App {
 
   // Another, more elegant solution that was suggested
   def swapBySlicingArrayOf(inputArray: Array[Int]): Array[Int] = {
-    val res = for{
+    val res = for {
       i <- inputArray.grouped(2)
     } yield {
       i.reverse
@@ -69,8 +50,6 @@ package object exercise3 extends App {
 
   // Yet another, more elegant approach; since here there's no loop, this can't be considered a solution to
   // the exercise; yet, it might be useful in order to understand how concise Scala can be.
-  def functionalSwappedArray(inputArray: Array[Int]): Array[Int] = {
-    inputArray.grouped(2).map(_.reverse).flatten.toArray
-  }
+  def functionalSwappedArray(inputArray: Array[Int]): Array[Int] = inputArray.grouped(2).map(_.reverse).flatten.toArray
 
 }

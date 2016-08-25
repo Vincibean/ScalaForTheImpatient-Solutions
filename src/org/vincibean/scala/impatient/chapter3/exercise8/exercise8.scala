@@ -33,23 +33,13 @@ import scala.collection.mutable.ArrayBuffer
   *
   * Created by Vincibean on 12/01/16.
   */
-package object exercise8 extends App {
-
-  val initialArray = ArrayBuffer(1, 2, -12, 1, -2, -12, -12, 1, -2)
-  println(s"Initial Array: ${initialArray.mkString(", ")}")
-  newDropping(initialArray)
-  println(s"After dropping the 1st negative number (if any!): ${initialArray.mkString(", ")}")
-
-  val anotherArray = ArrayBuffer(1, 2, 1, 1, 2)
-  println(s"Initial Array: ${anotherArray.mkString(", ")}")
-  newDropping(anotherArray)
-  println(s"After dropping the 1st negative number (if any!): ${anotherArray.mkString(", ")}")
+package object exercise8 {
 
   def newDropping(a: ArrayBuffer[Int]) = {
     // First, let’s use a for / yield loop to find all matching index values.
-    val indexes = (for (i <- a.indices if a(i) < 0) yield i).drop(1)
-    // Then we visit the indexes in reverse.
-    for (j <- indexes.indices.reverse) a.remove(indexes(j))
+    val indices = (for (i <- a.indices if a(i) < 0) yield i).drop(1)
+    // Then we visit the indices in reverse.
+    for (j <- indices.indices.reverse) a.remove(indices(j))
   }
 
 }

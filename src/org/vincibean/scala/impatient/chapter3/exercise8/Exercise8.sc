@@ -15,29 +15,17 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter3
+import scala.collection.mutable.ArrayBuffer
+import org.vincibean.scala.impatient.chapter3.exercise8.newDropping
 
-import scala.io.StdIn
-import scala.util.Random
+// Let's test the function
+val initialArray = ArrayBuffer(1, 2, -12, 1, -2, -12, -12, 1, -2)
+println(s"Initial Array: ${initialArray.mkString(", ")}")
+newDropping(initialArray)
+println(s"After dropping the 1st negative number (if any!): ${initialArray.mkString(", ")}")
 
-/**
-  * Write a code snippet that sets 'a' to an array of n random integers between 0
-  * (inclusive) and n (exclusive).
-  *
-  * Created by Vincibean on 12/01/16.
-  */
-package object exercise1 extends App {
-
-  print("Choose any integer value > 0: ")
-  val chosenNumber = StdIn.readInt()
-  // TODO Check that the chosen number is a positive integer.
-  val a = nRandomIntegers(chosenNumber)
-  println(s"And today's random numbers are: ${a.mkString(", ")}")
-
-  def nRandomIntegers(n: Int): Array[Int] =
-    (0 until n)
-      .map(_ => Random.nextInt(n))
-      .toArray
-
-
-}
+// Now with an Array that doesn't contain negative numbers
+val anotherArray = ArrayBuffer(1, 2, 1, 1, 2)
+println(s"Initial Array: ${anotherArray.mkString(", ")}")
+newDropping(anotherArray)
+println(s"After dropping the 1st negative number (if any!): ${anotherArray.mkString(", ")}")

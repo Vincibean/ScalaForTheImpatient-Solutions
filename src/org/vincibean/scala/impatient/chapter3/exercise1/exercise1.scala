@@ -17,15 +17,19 @@
 
 package org.vincibean.scala.impatient.chapter3
 
+import scala.util.Random
+
 /**
-  * How do you compute the average of an Array[Double]?
+  * Write a code snippet that sets 'a' to an array of n random integers between 0
+  * (inclusive) and n (exclusive).
   *
   * Created by Vincibean on 12/01/16.
   */
-package object exercise5 extends App {
+package object exercise1 {
 
-  val initialArray = Array(1.0, 2.0, -12.0)
-  println(s"Initial Array: ${initialArray.mkString(", ")}")
-  println(s"Average: ${initialArray.sum / initialArray.length}")
+  def nRandomIntegers(n: Int): Array[Int] =
+    (0 until n)
+      .map(_ => Random.nextInt(n))
+      .toArray
 
 }

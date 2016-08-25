@@ -17,16 +17,26 @@
 
 package org.vincibean.scala.impatient.chapter3
 
+import scala.collection.mutable.ArrayBuffer
+
 /**
-  * Write a code snippet that produces all values from an array with duplicates removed.
-  * (Hint: Look at Scaladoc.)
+  * Write a loop that swaps adjacent elements of an array of integers.
+  * For example, Array(1, 2, 3, 4, 5) becomes Array(2, 1, 4, 3, 5).
   *
   * Created by Vincibean on 12/01/16.
   */
-package object exercise7 extends App {
+package object exercise2 {
 
-  val initialArray = Array(1, 2, -12, 1, 2, 12, 12, 1, 2)
-  println(s"Initial Array: ${initialArray.mkString(", ")}")
-  println(s"Distinct Values: ${initialArray.distinct.mkString(", ")}")
+  // Using a mutable Array and creating a side effect!
+  def swapArray(inputArray: ArrayBuffer[Int]): Unit ={
+    for {i <- 0.until(inputArray.length, 2)
+         j = i + 1 if j < inputArray.length} {
+      val a = inputArray(i)
+      val b = inputArray(j)
+      inputArray(i) = b
+      inputArray(j) = a
+    }
+  }
+
 
 }

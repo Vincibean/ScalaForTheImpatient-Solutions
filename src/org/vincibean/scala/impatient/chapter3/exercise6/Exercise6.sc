@@ -15,26 +15,14 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter3
-
 import scala.collection.mutable
 
-/**
-  * How do you rearrange the elements of an Array[Int] so that they appear in reverse sorted order?
-  * How do you do the same with an ArrayBuffer[Int]?
-  *
-  * Created by Vincibean on 12/01/16.
-  */
-package object exercise6 extends App {
-
-  val initialArray = Array(1.0, 2.0, -12.0)
-  println(s"Initial Array: ${initialArray.mkString(", ")}")
-  println(s"Reverse Sorted Order: ${initialArray.sortWith( _ > _).mkString(", ")}")
-  println()
-  val initialArrayBuffer = mutable.Buffer(1, -10, 3, 4, 8, 2, 5)
-  println(s"Initial Array: ${initialArrayBuffer.mkString(", ")}")
-  println(s"Reverse Sorted Order: ${initialArrayBuffer.sortWith( _ > _)}")
-
-
-
-}
+// How do you rearrange the elements of an Array[Int] so that they appear in reverse sorted order?
+val initialArray = Array(1.0, 2.0, -12.0)
+println(s"Initial Array: ${initialArray.mkString(", ")}")
+println(s"Reverse Sorted Order: ${initialArray.sortWith( _ > _).mkString(", ")}")
+println()
+// How do you do the same with an ArrayBuffer[Int]?
+val initialArrayBuffer = mutable.Buffer(1, -10, 3, 4, 8, 2, 5)
+println(s"Initial Array: ${initialArrayBuffer.mkString(", ")}")
+println(s"Reverse Sorted Order: ${initialArrayBuffer.sortWith( _ > _)}")
