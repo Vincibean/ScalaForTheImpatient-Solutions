@@ -18,7 +18,6 @@
 import scala.util.Random
 import org.vincibean.scala.impatient.chapter2.exercise6.stringMultiplication
 
-// Write a for loop for computing the product of the Unicode codes of all letters in a string.
-// For example, the product of the characters in "Hello" is 825152896.
+// Let's test the stringMultiplication() function
 val string2multiply = Random.nextString(20)
 println(s"The result of the multiplication is: ${stringMultiplication(string2multiply)}")

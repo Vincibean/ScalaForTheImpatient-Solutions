@@ -15,8 +15,13 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import org.vincibean.scala.impatient.chapter2.exercise1.signum
+import scala.util.Random
+import org.vincibean.scala.impatient.chapter2.exercise5.countdown
 
-println("Signum of number -23: " + signum(-23))
-println("Signum of number 46: " + signum(46))
-println("Signum of number 0: " + signum(0))
+// Let's test the countdown(n: Int) exercise1.
+print("Select an integer number > 0: ")
+val start = Random.nextInt(20)
+println()
+println("Starting countdown")
+countdown(start)
+println("BOOOOM!!")
