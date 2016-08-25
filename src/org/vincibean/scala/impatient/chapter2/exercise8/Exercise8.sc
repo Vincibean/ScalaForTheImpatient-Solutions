@@ -15,21 +15,9 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter2
+import scala.util.Random
+import org.vincibean.scala.impatient.chapter2.exercise8.product
 
-import scala.io.StdIn
-
-/**
-  * Write a function product(s : String) that computes the product, as described
-  * in the preceding exercises.
-  *
-  * Created by Vincibean on 11/01/16.
-  */
-package object exercise8 extends App {
-
-  val string2multiply = StdIn.readLine("Enter the String to 'multiply': ")
-  println(s"The result of the multiplication is: ${product(string2multiply)}")
-
-  def product(string2multiply: String) = string2multiply.map(_.toInt).product
-
-}
+// Let's test the function product(s : String) that computes the product.
+val string2multiply = Random.nextString(20)
+println(s"The result of the multiplication is: ${product(string2multiply)}")

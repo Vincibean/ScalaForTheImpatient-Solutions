@@ -15,26 +15,9 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter2
+import scala.util.Random
+import org.vincibean.scala.impatient.chapter2.exercise9.product
 
-import scala.io.StdIn
-
-/**
-  * Write a procedure countdown(n: Int) that prints the numbers from n to 0.
-  *
-  * Created by Vincibean on 11/01/16.
-  */
-package object exercise5 extends App {
-
-  print("Select an integer number > 0: ")
-  val start = StdIn.readInt()
-  // TODO Check that start > 0
-  println()
-  println("Starting countdown")
-  countdown(start)
-  println("BOOOOM!!")
-
-  // TODO Check that n > 0
-  def countdown(n: Int) = n.to(0, -1).foreach(println(_))
-
-}
+// Let's test the recursive function.
+val string2multiply = Random.nextString(20)
+println(s"The result of the multiplication is: ${product(string2multiply)}")

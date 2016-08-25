@@ -28,12 +28,7 @@ package org.vincibean.scala.impatient.chapter2
   *
   * Created by Vincibean on 11/01/16.
   */
-package object exercise10 extends App {
-
-  println(s"Recursive Power of 34 exp 0 = ${recursivePower(34, 0)}")    // 1
-  println(s"Recursive Power of 3 exp 3 = ${recursivePower(3, 3)}")      // Infinite loop!
-  println(s"Recursive Power of 3 exp (-3) = ${recursivePower(3, -3)}")  // Infinite loop!
-  println(s"Recursive Power of 3 exp 2 = ${recursivePower(2, 2)}")      // Infinite loop!
+package object exercise10 {
 
   def recursivePower(base: Int, exponent: Int): Int = {
     if (exponent > 0 && exponent % 2 == 0)
