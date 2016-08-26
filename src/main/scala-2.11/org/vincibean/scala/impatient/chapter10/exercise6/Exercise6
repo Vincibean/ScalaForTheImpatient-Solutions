@@ -7,6 +7,7 @@ Q:  In the Java AWT library, we have a class Container, a subclass of Component 
     in Figure 10-4.
     But that's not possible in Java. Explain why not. How could the design be
     executed in Scala with traits?
+
 A:  In Java, multiple inheritance, that is the feature of some object-oriented computer programming languages
     in which an object or class can inherit characteristics and features from more than one parent object or parent
     class, isn't allowed. Only single inheritance, where an object or class may only inherit from one particular
