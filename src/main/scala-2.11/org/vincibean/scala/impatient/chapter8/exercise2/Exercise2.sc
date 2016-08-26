@@ -17,7 +17,7 @@
 
 import org.vincibean.scala.impatient.chapter8.exercise2.SavingsAccount
 
-// Testing the SavingsAccount object
+// Testing the SavingsAccount class
 val account: SavingsAccount = new SavingsAccount(1000)
 account.earnMonthlyInterest()
 println(account.deposit(0))

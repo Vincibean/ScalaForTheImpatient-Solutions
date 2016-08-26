@@ -17,7 +17,7 @@
 
 import org.vincibean.scala.impatient.chapter5.exercise7.Person
 
-// Testing the Person object
+// Testing the Person class
 val person: Person = new Person("Wesley Crusher")
 println(s"Person name: ${person.name}")
 println(s"Person last name: ${person.lastName}")

@@ -17,7 +17,7 @@
 
 import org.vincibean.scala.impatient.chapter5.exercise6.Person
 
-// Testing the Person object
+// Testing the Person class
 val p1: Person = new Person(30)
 println(s"First person's age should be 30; actual: ${p1.age}")
 val p2: Person = new Person(0)

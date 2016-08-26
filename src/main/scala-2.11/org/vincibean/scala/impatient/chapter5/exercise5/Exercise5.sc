@@ -17,7 +17,7 @@
 
 import org.vincibean.scala.impatient.chapter5.exercise5.Student
 
-// Testing the Student object
+// Testing the Student class
 val student: Student = Student("Wesley Crusher", 10)
 println(s"Student name: ${student.name}")
 println(s"Student name (getter): ${student.getName}")

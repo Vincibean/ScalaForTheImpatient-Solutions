@@ -17,7 +17,7 @@
 
 import org.vincibean.scala.impatient.chapter5.exercise3.Time
 
-// Testing the Time object
+// Testing the Time class
 val t1: Time = new Time(12, 12)
 val t2: Time = new Time(12, 13)
 println(s"Is ${t1.hours}:${t1.minutes} before than ${t2.hours}:${t2.minutes}? ${t1.before(t2)}")

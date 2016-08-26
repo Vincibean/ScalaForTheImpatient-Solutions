@@ -17,7 +17,7 @@
 
 import org.vincibean.scala.impatient.chapter5.exercise2.BankAccount
 
-// Testing the BankAccount object
+// Testing the BankAccount class
 val bankAccount = new BankAccount
 println(s"Initial balance is ${bankAccount.currentBalance}")  // Expected: 0
 // bankAccount.balance = 1000      // Won't compile

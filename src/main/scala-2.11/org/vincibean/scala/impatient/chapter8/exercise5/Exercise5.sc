@@ -17,7 +17,7 @@
 
 import org.vincibean.scala.impatient.chapter8.exercise5.LabeledPoint
 
-// Testing the Point object
+// Testing the Point class
 val point: LabeledPoint = LabeledPoint("Black Thursday", 1929, 230.07)
 println(point)
 println(point.label)

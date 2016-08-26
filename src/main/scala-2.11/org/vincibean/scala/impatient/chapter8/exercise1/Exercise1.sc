@@ -17,7 +17,7 @@
 
 import org.vincibean.scala.impatient.chapter8.exercise1.CheckingAccount
 
-// Testing the created objects
+// Testing the created classes
 private val balance: Double = 1000
 println(s"Opening a new account with $balance dollars")
 private val account: CheckingAccount = new CheckingAccount(balance)
