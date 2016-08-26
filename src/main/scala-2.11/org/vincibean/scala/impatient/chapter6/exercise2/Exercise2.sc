@@ -15,19 +15,10 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter6
+import org.vincibean.scala.impatient.chapter6.exercise2.{GallonsToLiters, InchesToCentimeters, MilesToKilometers}
 
-/**
-  * Write an enumeration describing the four playing card suits so that the toString
-  * method returns ♣, ♦, ♥, or ♠.
-  *
-  * Created by Vincibean on 20/01/16.
-  */
-package object exercise6 extends App {
-
-  println(s"Clubs: ${Seed.Clubs}")
-  println(s"Diamonds: ${Seed.Diamonds}")
-  println(s"Hearts: ${Seed.Hearts}")
-  println(s"Spades: ${Seed.Spades}")
-
-}
+// Testing the UnitConversion child objects
+println("--- Interesting Facts ---")
+println(s"2 inches correspond to ${InchesToCentimeters(2)} centimeters.")
+println(s"1 gallon corresponds to ${GallonsToLiters(1)} liters.")
+println(s"3 miles correspond to ${MilesToKilometers(3)} kilometers.")

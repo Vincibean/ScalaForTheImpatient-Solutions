@@ -15,20 +15,11 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter6
+import org.vincibean.scala.impatient.chapter6.exercise6.Seed
+import org.vincibean.scala.impatient.chapter6.exercise7.isRedSeed
 
-/**
-  * The preceding problem wasn't very object-oriented. Provide a general super-class
-  * UnitConversion and define objects InchesToCentimeters, GallonsToLiters, and
-  * MilesToKilometers that extend it.
-  *
-  * Created by Vincibean on 20/01/16.
-  */
-package object exercise2 extends App {
-
-  println("--- Interesting Facts ---")
-  println(s"2 inches correspond to ${InchesToCentimeters(2)} centimeters.")
-  println(s"1 gallon corresponds to ${GallonsToLiters(1)} liters.")
-  println(s"3 miles correspond to ${MilesToKilometers(3)} kilometers.")
-
-}
+// Testing the isRedSeed() function
+println(s"Is Clubs a red seed? ${isRedSeed(Seed.Clubs)}")
+println(s"Is Diamonds a red seed? ${isRedSeed(Seed.Diamonds)}")
+println(s"Is Hearts a red seed? ${isRedSeed(Seed.Hearts)}")
+println(s"Is Spades a red seed? ${isRedSeed(Seed.Spades)}")

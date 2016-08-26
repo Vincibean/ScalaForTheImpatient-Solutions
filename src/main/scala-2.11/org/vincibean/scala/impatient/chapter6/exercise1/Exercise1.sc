@@ -15,19 +15,10 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter6
+import org.vincibean.scala.impatient.chapter6.exercise1.Conversions
 
-import org.vincibean.scala.impatient.chapter6.exercise6.Seed
-import org.vincibean.scala.impatient.chapter6.exercise6.Seed.Seed
-
-/**
-  * Implement a function that checks whether a card suit value from the preceding
-  * exercise is red.
-  *
-  * Created by Vincibean on 20/01/16.
-  */
-package object exercise7 {
-
-  def isRedSeed(seed: Seed): Boolean = (seed == Seed.Hearts) || (seed == Seed.Clubs)
-
-}
+// Testing the Conversion functions
+println("--- Interesting Facts ---")
+println(s"2 inches correspond to ${Conversions.inchesToCentimeters(2)} centimeters.")
+println(s"1 gallon corresponds to ${Conversions.gallonsToLiters(1)} liters.")
+println(s"3 miles correspond to ${Conversions.milesToKilometers(3)} kilometers.")

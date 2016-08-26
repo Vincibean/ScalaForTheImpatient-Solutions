@@ -15,23 +15,10 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter6
+import org.vincibean.scala.impatient.chapter6.exercise4.Point
 
-/**
-  * Write an enumeration describing the four playing card suits so that the toString
-  * method returns ♣, ♦, ♥, or ♠.
-  *
-  * Created by Vincibean on 20/01/16.
-  */
-package object exercise8 extends App {
-
-  println(s"${RGB.Red}: ${RGB.Red.id}")
-  println(s"${RGB.Green}: ${RGB.Green.id}")
-  println(s"${RGB.Blue}: ${RGB.Blue.id}")
-  println(s"${RGB.RedGreen}: ${RGB.RedGreen.id}")
-  println(s"${RGB.RedBlue}: ${RGB.RedBlue.id}")
-  println(s"${RGB.GreenBlue}: ${RGB.GreenBlue.id}")
-  println(s"${RGB.Black}: ${RGB.Black.id}")
-  println(s"${RGB.White}: ${RGB.White.id}")
-
-}
+// Testing the Point class and companion object
+println("Let's construct a new Point, with x = 13, y = 37")
+val p = Point(13, 37)
+println("And here it is, your freshly baked point:")
+println(p)

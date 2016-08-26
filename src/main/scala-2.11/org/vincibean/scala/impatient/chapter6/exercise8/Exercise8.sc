@@ -15,19 +15,14 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter6
+import org.vincibean.scala.impatient.chapter6.exercise8.RGB
 
-/**
-  * Write an object Conversions with methods inchesToCentimeters, gallonsToLiters, and
-  * milesToKilometers.
-  *
-  * Created by Vincibean on 20/01/16.
-  */
-package object exercise1 extends App {
-
-  println("--- Interesting Facts ---")
-  println(s"2 inches correspond to ${Conversions.inchesToCentimeters(2)} centimeters.")
-  println(s"1 gallon corresponds to ${Conversions.gallonsToLiters(1)} liters.")
-  println(s"3 miles correspond to ${Conversions.milesToKilometers(3)} kilometers.")
-
-}
+// Testing the RGB Enumeration
+println(s"${RGB.Red}: ${RGB.Red.id}")
+println(s"${RGB.Green}: ${RGB.Green.id}")
+println(s"${RGB.Blue}: ${RGB.Blue.id}")
+println(s"${RGB.RedGreen}: ${RGB.RedGreen.id}")
+println(s"${RGB.RedBlue}: ${RGB.RedBlue.id}")
+println(s"${RGB.GreenBlue}: ${RGB.GreenBlue.id}")
+println(s"${RGB.Black}: ${RGB.Black.id}")
+println(s"${RGB.White}: ${RGB.White.id}")
