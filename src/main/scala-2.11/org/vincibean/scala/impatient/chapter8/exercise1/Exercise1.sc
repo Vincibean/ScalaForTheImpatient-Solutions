@@ -15,23 +15,12 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter8
+import org.vincibean.scala.impatient.chapter8.exercise1.CheckingAccount
 
-/**
-  * Extend the BankAccount class of the preceding exercise into a class SavingsAccount
-  * that earns interest every month (when a method earnMonthlyInterest is called)
-  * and has three free deposits or withdrawals every month. Reset the transaction
-  * count in the earnMonthlyInterest method.
-  *
-  * Created by Vincibean on 22/01/16.
-  */
-package object exercise2 extends App {
-
-  val account: SavingsAccount = new SavingsAccount(1000)
-  account.earnMonthlyInterest()
-  println(account.deposit(0))
-  println(account.deposit(0))
-  println(account.deposit(0))
-  println(account.deposit(0))
-
-}
+// Testing the created objects
+private val balance: Double = 1000
+println(s"Opening a new account with $balance dollars")
+private val account: CheckingAccount = new CheckingAccount(balance)
+private val deposit: Double = 100
+println(s"Depositing $deposit dollars")
+println(s"Resulting balance is: ${account.deposit(deposit)}")
