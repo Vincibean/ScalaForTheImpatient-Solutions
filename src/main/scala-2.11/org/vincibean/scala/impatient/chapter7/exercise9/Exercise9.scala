@@ -15,7 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter7
+package org.vincibean.scala.impatient.chapter7.exercise9
 
 /**
   * Write a program that imports the java.lang.System class, reads the user name
@@ -26,7 +26,7 @@ package org.vincibean.scala.impatient.chapter7
   *
   * Created by Vincibean on 22/01/16.
   */
-package object exercise9 extends App {
+object Exercise9 extends App {
 
   val username: String = System.getProperty("user.name")
   println("Insert your very secret password: ")

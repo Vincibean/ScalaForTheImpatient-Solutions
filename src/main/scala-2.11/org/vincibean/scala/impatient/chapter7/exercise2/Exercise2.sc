@@ -15,44 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter7
+import org.vincibean.scala.impatient.chapter7._
 
-/**
-  * Write a puzzler that baffles your Scala friends, using a package com that isn’t
-  * at the top level.
-  *
-  * Created by Vincibean on 22/01/16.
-  */
-package object exercise2 extends App {
-
-  val theSameValue: Int = 17
-
-}
-
-// My packages start with org, not com. Sorry Cay! :-)
-
-package org {
-
-  package vincibean {
-
-    package scala {
-
-      package impatient {
-
-        package chapter7 {
-
-          package object exercise2 {
-
-            val theSameValue: Int = 43
-
-          }
-
-        }
-
-      }
-
-    }
-
-  }
-
-}
+// Testing the solution. Don't try this in production!
+_root_.org.vincibean.scala.impatient.chapter7.exercise2.theSameValue == org.vincibean.scala.impatient.chapter7.exercise2.theSameValue
