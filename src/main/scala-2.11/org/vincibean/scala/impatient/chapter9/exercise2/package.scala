@@ -20,6 +20,7 @@ package org.vincibean.scala.impatient.chapter9
 import java.io.PrintWriter
 
 import scala.io.Source
+import scala.util.{Failure, Success, Try}
 
 /**
   * Write a Scala program that reads a file with tabs, replaces each tab with spaces
@@ -28,19 +29,19 @@ import scala.io.Source
   *
   * Created by Vincibean on 25/01/16.
   */
-package object exercise2 extends App {
+package object exercise2 {
 
-  val n = 2
+  def getResource(relativePath: String): String = Source
+    .fromInputStream(getClass.getClassLoader.getResourceAsStream(relativePath))
+    .getLines()
+    .toList
+    .mkString("\n")
 
-  val source = Source.fromFile("resources/chapter9/exercise2/tsv.tsv")
-  val inputTsv = source.mkString
-  val tabPattern = """\t""".r
-  val outputSsv = tabPattern.replaceAllIn(inputTsv, " " * n)
-  source.close()
-
-  // Will override input file!
-  val out = new PrintWriter("resources/chapter9/exercise2/tsv.tsv")
-  out.println(outputSsv)
-  out.close()
+  def writeContentInResource(relativePath: String, content: String): Unit = {
+    val out = new PrintWriter(getClass.getClassLoader.getResource(relativePath).getPath)
+    out.append(content)
+    out.flush()
+    out.close()
+  }
 
 }

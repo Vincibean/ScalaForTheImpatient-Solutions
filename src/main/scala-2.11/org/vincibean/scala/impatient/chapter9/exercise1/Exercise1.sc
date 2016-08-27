@@ -15,24 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter9
+import org.vincibean.scala.impatient.chapter9.exercise1.reverseResource
 
-import scala.io.Source
-
-/**
-  * Write a Scala code snippet that reads a file and prints all words with more
-  * than 12 characters to the console. Extra credit if you can do this in a single line.
-  *
-  * Created by Vincibean on 25/01/16.
-  */
-package object exercise3 {
-
-  def getFilteredResource(relativePath: String): Array[String] = Source
-    .fromInputStream(getClass.getClassLoader.getResourceAsStream(relativePath))
-    .getLines()
-    .toList
-    .mkString(" ")
-    .split("\\s+")
-    .filter(_.length > 12)
-
-}
+// Testing the function
+println(reverseResource("chapter9/exercise1/sagan.txt"))

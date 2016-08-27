@@ -26,15 +26,12 @@ import scala.io.Source
   *
   * Created by Vincibean on 25/01/16.
   */
-package object exercise4 extends App {
+package object exercise4 {
 
-  val source = Source.fromFile("resources/chapter9/exercise4/floatNumbers.txt")
-  val floatNumbers = source.mkString.split("\n").map(_.toDouble)
-  val sum = floatNumbers.sum
-  println(s"The sum is: $sum")
-  println(s"The average is: ${sum / floatNumbers.length}")
-  println(s"The maximum is: ${floatNumbers.max}")
-  println(s"The minimum is: ${floatNumbers.min}")
-  source.close()
+  def getResourceAsDoubles(relativePath: String): Seq[Double] = Source
+    .fromInputStream(getClass.getClassLoader.getResourceAsStream(relativePath))
+    .getLines()
+    .toList
+    .map(_.toDouble)
 
 }

@@ -15,24 +15,14 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter9
+import org.vincibean.scala.impatient.chapter9.exercise2.getResource
 
-import scala.io.Source
+// Write a Scala program that reads a text file and prints all tokens in the file
+// that are not floating-point numbers. Use a regular expression.
 
-/**
-  * Write a Scala code snippet that reads a file and prints all words with more
-  * than 12 characters to the console. Extra credit if you can do this in a single line.
-  *
-  * Created by Vincibean on 25/01/16.
-  */
-package object exercise3 {
-
-  def getFilteredResource(relativePath: String): Array[String] = Source
-    .fromInputStream(getClass.getClassLoader.getResourceAsStream(relativePath))
-    .getLines()
-    .toList
-    .mkString(" ")
-    .split("\\s+")
-    .filter(_.length > 12)
-
-}
+// Reusing the code of exercise 2
+val source = getResource("chapter9/exercise7/float.txt")
+// I couldn't find any way to simply take all but floating points tokens.
+// Yet, I could find a way to look for floating point numbers; so, I'll just replace
+// the floating point numbers with... nothing.
+println("""[0-9]+?\.[0-9]+""".r.replaceAllIn(source.mkString, "").split("""\s+""").mkString("; "))

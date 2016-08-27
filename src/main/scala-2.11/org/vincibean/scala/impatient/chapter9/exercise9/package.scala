@@ -25,16 +25,13 @@ import java.io.File
   *
   * Created by Vincibean on 27/01/16.
   */
-package object exercise9 extends App {
+package object exercise9 {
+
   // A slightly modified version of BasileDuPlessis' solution.
 
   def countClass(dir: File): Int = {
     val dirList = dir.listFiles
-    dirList.count(_.toString.endsWith(".class")) + dirList.filter(_.isDirectory).map(countClass(_)).sum
+    dirList.count(_.toString.endsWith(".class")) + dirList.filter(_.isDirectory).map(countClass).sum
   }
-
-  val dir = new File("""out/production""")
-
-  println(countClass(dir))
 
 }

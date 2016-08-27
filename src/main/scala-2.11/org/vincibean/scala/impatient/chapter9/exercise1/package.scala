@@ -25,10 +25,13 @@ import scala.io.Source
   *
   * Created by Vincibean on 25/01/16.
   */
-package object exercise1 extends App {
+package object exercise1 {
 
-  val source = Source.fromFile("resources/chapter9/exercise1/sagan.txt")
-  println(source.getLines.toList.reverse.mkString("\n"))
-  source.close()
+  def reverseResource(relativePath: String) = Source
+    .fromInputStream(getClass.getClassLoader.getResourceAsStream(relativePath))
+    .getLines()
+    .toList
+    .reverse
+    .mkString("\n")
 
 }

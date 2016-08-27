@@ -30,11 +30,16 @@ import java.io.PrintWriter
   *
   * Created by Vincibean on 27/01/16.
   */
-package object exercise5 extends App {
+package object exercise5 {
 
-  // Will clean the input file, then write on it.
-  val out = new PrintWriter("resources/chapter9/exercise5/output.txt")
-  out.println((0 until 20).map(i => s"\t ${Math.pow(2, i)} \t\t ${1.0 / Math.pow(2, i)} \n").mkString)
-  out.close()
+  def writeResource(): Unit = {
+    // Will override output file.
+    // N.B.: The overridden file will be the one produced by SBT! You can find it in the target folder
+    // corresponding to this exercise.
+    val out = new PrintWriter(getClass.getClassLoader.getResource("chapter9/exercise5/output.txt").getPath)
+    out.println((0 until 20).map(i => s"\t ${Math.pow(2, i)} \t\t ${1.0 / Math.pow(2, i)} \n").mkString)
+    out.flush()
+    out.close()
+  }
 
 }

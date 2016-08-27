@@ -15,21 +15,12 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter9
+import org.vincibean.scala.impatient.chapter9.exercise4.getResourceAsDoubles
 
-import scala.io.Source
-
-/**
-  * Write a Scala program that prints the src attributes of all img tags of a web
-  * page. Use regular expressions and groups.
-  *
-  * Created by Vincibean on 27/01/16.
-  */
-package object exercise8 extends App {
-
-  val source = Source.fromURL("http://www.w3schools.com/")
-  // TODO Couldn't find a way to pick only the src attribute, only the whole string.
-  println("""<img[^>]+src=([A-Za-z0-9'"/.]+)""".r.findAllIn(source.mkString).mkString("; "))
-
-
-}
+// Testing the function
+val doubles = getResourceAsDoubles("chapter9/exercise4/floatNumbers.txt")
+val sum = doubles.sum
+println(s"The sum is: $sum")
+println(s"The average is: ${sum / doubles.length}")
+println(s"The maximum is: ${doubles.max}")
+println(s"The minimum is: ${doubles.min}")

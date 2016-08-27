@@ -15,24 +15,17 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter9
+import org.vincibean.scala.impatient.chapter9.exercise2.{getResource, writeContentInResource}
 
-import scala.io.Source
+// Write a Scala program that reads a file with tabs, replaces each tab with spaces
+// so that tab stops are at n-column boundaries, and writes the result to the
+// same file.
+val n = 2
+val source = getResource("chapter9/exercise2/tsv.tsv")
+val tabPattern = """\t""".r
+val outputContent = tabPattern.replaceAllIn(source, " " * n)
 
-/**
-  * Write a Scala code snippet that reads a file and prints all words with more
-  * than 12 characters to the console. Extra credit if you can do this in a single line.
-  *
-  * Created by Vincibean on 25/01/16.
-  */
-package object exercise3 {
-
-  def getFilteredResource(relativePath: String): Array[String] = Source
-    .fromInputStream(getClass.getClassLoader.getResourceAsStream(relativePath))
-    .getLines()
-    .toList
-    .mkString(" ")
-    .split("\\s+")
-    .filter(_.length > 12)
-
-}
+// Will override output file (yes, we are cheating a bit!)
+// N.B.: The overridden file will be the one produced by SBT! You can find it in the target folder
+// corresponding to this exercise.
+writeContentInResource("chapter9/exercise2/tsv_out.txt", outputContent)

@@ -15,24 +15,18 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter9
+import org.vincibean.scala.impatient.chapter9.exercise10.{preparePeople, seralizeAndDeserialize}
 
-import scala.io.Source
+// Testing
+val people = preparePeople()
 
-/**
-  * Make a regular expression searching for quoted strings "like this, maybe with
-  * \" or \\" in a Java or C++ program. Write a Scala program that prints out all
-  * such strings in a source file.
-  *
-  * Created by Vincibean on 27/01/16.
-  */
-package object exercise6 extends App {
+val savedPeople = seralizeAndDeserialize(people)
 
-  val inputFile = Source.fromFile("resources/chapter9/exercise6/quoted.txt")
-  val inputFileString = inputFile.mkString
-  // TODO Ends when a \" is found. Any ideas?
-  val pattern = """"(?:[^"])*"""".r
-  println(s"${pattern.findAllIn(inputFileString).mkString("\n")}")
-  inputFile.close
+val s1 = savedPeople(0)
+val s2 = savedPeople(1)
+val s3 = savedPeople(2)
+val s4 = savedPeople(3)
+val s5 = savedPeople(4)
+val s6 = savedPeople(5)
 
-}
+println(s1.isFriend(s2) && s2.isFriend(s3) && s3.isFriend(s1) && s4.isFriend(s5) && s5.isFriend(s4))

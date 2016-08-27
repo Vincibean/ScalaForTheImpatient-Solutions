@@ -27,21 +27,7 @@ import java.io.{ObjectInputStream, FileInputStream, ObjectOutputStream, FileOutp
   *
   * Created by Vincibean on 27/01/16.
   */
-package object exercise10 extends App {
-
-  val people = preparePeople()
-
-  val savedPeople = seralizeAndDeserialize()
-
-  val s1 = savedPeople(0)
-  val s2 = savedPeople(1)
-  val s3 = savedPeople(2)
-  val s4 = savedPeople(3)
-  val s5 = savedPeople(4)
-  val s6 = savedPeople(5)
-
-  println(s1.isFriend(s2) && s2.isFriend(s3) && s3.isFriend(s1) && s4.isFriend(s5) && s5.isFriend(s4))
-
+package object exercise10 {
 
   def preparePeople(): Array[Person] = {
     val p1 = new Person("p1")
@@ -61,12 +47,14 @@ package object exercise10 extends App {
     Array(p1, p2, p3, p4, p5, p6)
   }
 
-  def seralizeAndDeserialize(): Array[Person] = {
-    val out = new ObjectOutputStream(new FileOutputStream("resources/chapter9/exercise7/people.obj"))
+  def seralizeAndDeserialize(people: Array[Person]): Array[Person] = {
+    // N.B.: The overridden file will be the one produced by SBT! You can find it in the target folder
+    // corresponding to this exercise.
+    val out = new ObjectOutputStream(new FileOutputStream(getClass.getClassLoader.getResource("chapter9/exercise10/people.obj").getPath))
     out.writeObject(people)
     out.close()
 
-    val in = new ObjectInputStream(new FileInputStream("resources/chapter9/exercise7/people.obj"))
+    val in = new ObjectInputStream(new FileInputStream(getClass.getClassLoader.getResource("chapter9/exercise10/people.obj").getPath))
     val savedPeople = in.readObject().asInstanceOf[Array[Person]]
     in.close()
     savedPeople
