@@ -1,5 +1,3 @@
-import org.vincibean.scala.impatient.chapter2.exercise1.signum
-
 /*
  * Copyright (C) 2016  Vincibean <Andre Bessi>
  *
@@ -16,6 +14,8 @@ import org.vincibean.scala.impatient.chapter2.exercise1.signum
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+import org.vincibean.scala.impatient.chapter2.exercise1.signum
 
 // Let's test the signum function
 println("Signum of number -23: " + signum(-23))
