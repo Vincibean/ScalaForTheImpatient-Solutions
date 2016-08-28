@@ -15,20 +15,10 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter10
+import org.vincibean.scala.impatient.chapter10.exercise9.loggingBufferedInputStream
 
-import java.io.{FileInputStream, InputStream}
-
-/**
-  * Using the logger traits from this chapter, add logging to the solution of
-  * the preceding problem that demonstrates buffering.
-  *
-  * Created by Vincibean on 14/03/16.
-  */
-package object exercise9 extends App {
-
-  def loggingBufferedInputStream: InputStream =
-    new FileInputStream(getClass.getClassLoader.getResource("chapter10/exercise8/sagan.txt").getPath) with Buffering
-
-
+// Testing the new Buffering + Logger trait
+val container = new Array[Byte](256)
+while (loggingBufferedInputStream.read(container) != -1) {
+  container.map(_.toChar).foreach(print)
 }

@@ -15,20 +15,16 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter10
+import org.vincibean.scala.impatient.chapter10.exercise2.OrderedPoint
 
-import java.io.{FileInputStream, InputStream}
+// Testing the OrderedPoint class
+val point1 = new OrderedPoint(0, 0)
+val point2 = new OrderedPoint(0, 0)
+val point3 = new OrderedPoint(-1, -1)
+val point4 = new OrderedPoint(0, -1)
+val point5 = new OrderedPoint(43, 98)
 
-/**
-  * Using the logger traits from this chapter, add logging to the solution of
-  * the preceding problem that demonstrates buffering.
-  *
-  * Created by Vincibean on 14/03/16.
-  */
-package object exercise9 extends App {
-
-  def loggingBufferedInputStream: InputStream =
-    new FileInputStream(getClass.getClassLoader.getResource("chapter10/exercise8/sagan.txt").getPath) with Buffering
-
-
-}
+println(s"Equality check passed? ${point1.compare(point2) == 0}")
+println(s"'Greater than' check passed? ${point1.compare(point3) > 0}")
+println(s"'Greater than' check passed? ${point1.compare(point4) > 0}")
+println(s"'Less than' check passed? ${point1.compare(point5) < 0}")

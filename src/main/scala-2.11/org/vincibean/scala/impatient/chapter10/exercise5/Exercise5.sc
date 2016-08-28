@@ -15,20 +15,21 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter10
+import java.awt.Point
+import java.beans.{PropertyChangeEvent, PropertyChangeListener}
 
-import java.io.{FileInputStream, InputStream}
+import org.vincibean.scala.impatient.chapter10.exercise5.PropertyChangeSupport
 
-/**
-  * Using the logger traits from this chapter, add logging to the solution of
-  * the preceding problem that demonstrates buffering.
-  *
-  * Created by Vincibean on 14/03/16.
-  */
-package object exercise9 extends App {
-
-  def loggingBufferedInputStream: InputStream =
-    new FileInputStream(getClass.getClassLoader.getResource("chapter10/exercise8/sagan.txt").getPath) with Buffering
-
-
+// Testing the PropertyChangeListener trait
+val myPropertyChangeListener = new PropertyChangeListener {
+  override def propertyChange(propertyChangeEvent: PropertyChangeEvent): Unit = {
+    // Nothing to do here...
+  }
 }
+
+val point = new Point with PropertyChangeSupport
+point.addPropertyChangeListener(myPropertyChangeListener)
+point.addPropertyChangeListener("anotherChangeListener", myPropertyChangeListener)
+point.hasListeners("anotherChangeListener")
+point.getPropertyChangeListeners
+point.removePropertyChangeListener(myPropertyChangeListener)

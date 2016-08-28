@@ -15,20 +15,13 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter10
+import org.vincibean.scala.impatient.chapter10.exercise4._
 
-/**
-  * Provide a CryptoLogger trait that encrypts the log messages with the Caesar
-  * cipher. The key should be 3 by default, but it should be overridable by the user.
-  * Provide usage examples with the default key and a key of -3.
-  *
-  * Created by Vincibean on 07/02/16.
-  */
-package object exercise4 extends App with CryptoLogger {
-
-  val msg = "Hello World!"
-  log(msg, 0)
-  log(msg)
-  log(msg, -3)
-
+// Testing the encryption
+val cryptoLogger = new CryptoLogger {
+  // Nothing to do here
 }
+val msg = "Hello World!"
+cryptoLogger.log(msg)
+cryptoLogger.log(msg, 0)
+cryptoLogger.log(msg, -3)

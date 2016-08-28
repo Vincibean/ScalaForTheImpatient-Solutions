@@ -15,20 +15,11 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter10
+import org.vincibean.scala.impatient.chapter10.exercise1.RectangleLike
 
-import java.io.{FileInputStream, InputStream}
-
-/**
-  * Using the logger traits from this chapter, add logging to the solution of
-  * the preceding problem that demonstrates buffering.
-  *
-  * Created by Vincibean on 14/03/16.
-  */
-package object exercise9 extends App {
-
-  def loggingBufferedInputStream: InputStream =
-    new FileInputStream(getClass.getClassLoader.getResource("chapter10/exercise8/sagan.txt").getPath) with Buffering
-
-
-}
+// Testing the RectangleLike trait
+val egg = new java.awt.geom.Ellipse2D.Double(5, 10, 20, 30) with RectangleLike
+println(s"Initial egg: [x: ${egg.getX}, y: ${egg.getY}, height: ${egg.getHeight}, width: ${egg.getWidth}]")
+egg.translate(10, -10)
+egg.grow(10, 20)
+println(s"Transformed egg: [x: ${egg.getX}, y: ${egg.getY}, height: ${egg.getHeight}, width: ${egg.getWidth}]")

@@ -15,20 +15,21 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter10
+import org.vincibean.scala.impatient.chapter10.exercise7.{HasSubmachineGun, Soldier, Tank, Tractor}
 
-import java.io.{FileInputStream, InputStream}
+// Testing (and demonstrating) the silly trait hierarchy example
+val jane: Soldier = new Soldier
+val metalSlug: Tank = new Tank
+val tom: Tractor = new Tractor
 
-/**
-  * Using the logger traits from this chapter, add logging to the solution of
-  * the preceding problem that demonstrates buffering.
-  *
-  * Created by Vincibean on 14/03/16.
-  */
-package object exercise9 extends App {
+jane.shoot()
+metalSlug.shoot()
+// tom.shoot()  Compilation error here!
 
-  def loggingBufferedInputStream: InputStream =
-    new FileInputStream(getClass.getClassLoader.getResource("chapter10/exercise8/sagan.txt").getPath) with Buffering
+// jane.leaveTracks()  Compilation error here!
+metalSlug.leaveTracks()
+tom.leaveTracks()
 
-
-}
+val crazyTom = new Tank with HasSubmachineGun
+crazyTom.leaveTracks()
+crazyTom.shoot()      // crazyTom the tractor has a submachine gun (!), so it can shoot
