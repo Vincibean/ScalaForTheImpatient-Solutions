@@ -15,19 +15,27 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter11
+import org.vincibean.scala.impatient.chapter11.exercise4.Money
 
-/**
-  * According to the precedence rules, how are 3 + 4 -> 5 and 3 -> 4 + 5 evaluated?
-  *
-  * Created by Vincibean on 22/05/16.
-  */
-package object exercise1 extends App {
+// Testing the Money operators
+val m1 = Money(2, 12)
+val m2 = Money(0, 24)
 
-  // + and -> have the same precedence, so left-associative rules are applied; hence, + will be evaluated before ->
-  println(3 + 4 -> 5)
-  // + and -> have the same precedence, so left-associative rules are applied; hence, -> will be evaluated before +
-  // Since -> will create a tuple, and tuples don't have the + operation defined, the following line won't compile
-  // println(3 -> 4 + 5)  Won't compile!
+println(m1 + m2)
+println(m1 + Money(0, 99))
+println(m1 - m2)
+println(m2 - m1)
+println(m1 == m2)
+println(m1 == Money(2, 12))
+println(m1 < m2)
+println(m2 < m1)
 
-}
+// Testing Money normalization
+println(Money(1, 167)) // Will print $2.67
+
+// Testing the condition given in the exercise
+println(Money(1, 75) + Money(0, 50) == Money(2, 25)) // will print true
+
+// It doesn't make any sense to multiply or divide two amount. It *might* make sense
+// to multiply or divide an amount with an Integer or a double, this would probably lead
+// to a confusing API.
