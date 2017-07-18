@@ -1,0 +1,9 @@
+Q:  In the Scala REPL, type 3. followed by the Tab key. What methods can be
+    applied?
+
+A:  !=   -    ==    abs            doubleValue   formatted    isInstanceOf    isValidInt     min         shortValue       toChar        toLong          unary_-      →
+    ##   ->   >     asInstanceOf   ensuring      getClass     isNaN           isValidLong    ne          signum           toDegrees     toOctalString   unary_~
+    %    /    >=    byteValue      eq            hashCode     isNegInfinity   isValidShort   notify      synchronized     toDouble      toRadians       underlying
+    &    <    >>    ceil           equals        intValue     isPosInfinity   isWhole        notifyAll   to               toFloat       toShort         until
+    *    <<   >>>   compare        floatValue    isInfinite   isValidByte     longValue      round       toBinaryString   toHexString   toString        wait
+    +    <=   ^     compareTo      floor         isInfinity   isValidChar     max            self        toByte           toInt         unary_+         |

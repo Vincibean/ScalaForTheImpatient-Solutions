@@ -1,0 +1,125 @@
+Q:  Look at the BitSet class, and make a diagram of all its superclasses and traits.
+    Ignore the type parameters (everything inside the [...]). Then give the
+    linearization of the traits.
+
+A:  Using the linearization rules, the full "tree" is:
+   BitSet
+    >> Serializable >> java.io.Serializable
+    >> BitSetLike
+        >> SortedSetLike
+            >> Parallelizable >> Any
+            >> Subtractable >> AnyRef
+            >> GenSetLike
+                >> Parallelizable >> Any
+                >> Equals >> Any
+                >> (A) => Boolean
+                >> GenIterableLike >> GenTraversableLike >> Parallelizable >> GenTraversableOnce >> Any
+            >> IterableLike
+                >> GenIterableLike >> GenTraversableLike >> Parallelizable >> GenTraversableOnce >> Any
+                >> TraversableLike
+                    >> Parallelizable >> Any
+                    >> GenTraversableLike >> Parallelizable >> GenTraversableOnce >> Any
+                    >> TraversableOnce >> GenTraversableOnce >> Any
+                    >> FilterMonadic >> Any
+                    >> HasNewBuilder >> Any
+                >> Equals >> Any
+            >> Set
+                >> SetLike
+                    >> Parallelizable >> Any
+                    >> Subtractable >> AnyRef
+                    >> GenSetLike
+                        >> Parallelizable >> Any
+                        >> Equals >> Any
+                        >> (A) => Boolean
+                        >> GenIterableLike >> GenTraversableLike >> Parallelizable >> GenTraversableOnce >> Any
+                    >> IterableLike
+                        >> GenIterableLike >> GenTraversableLike >> Parallelizable >> GenTraversableOnce >> Any
+                        >> TraversableLike
+                            >> Parallelizable >> Any
+                            >> GenTraversableLike >> Parallelizable >> GenTraversableOnce >> Any
+                            >> TraversableOnce >> GenTraversableOnce >> Any
+                            >> FilterMonadic >> Any
+                            >> HasNewBuilder >> Any
+                        >> Equals >> Any
+                >> GenericSetTemplate >> GenericTraversableTemplate >> HasNewBuilder >> Any
+                >> GenSet
+                    >> GenericSetTemplate >> GenericTraversableTemplate >> HasNewBuilder >> Any
+                    >> GenIterable
+                        >> GenericTraversableTemplate >> HasNewBuilder >> Any
+                        >> GenTraversable
+                            >> GenericTraversableTemplate >> HasNewBuilder >> Any
+                            >> GenTraversableOnce >> Any
+                            >> GenTraversableLike >> Parallelizable >> GenTraversableOnce >> Any
+                        >> GenIterableLike >> GenTraversableLike >> Parallelizable >> GenTraversableOnce >> Any
+                >> Iterable
+                    >> IterableLike
+                        >> GenIterableLike >> GenTraversableLike >> Parallelizable >> GenTraversableOnce >> Any
+                        >> TraversableLike
+                            >> Parallelizable >> Any
+                            >> GenTraversableLike >> Parallelizable >> GenTraversableOnce >> Any
+                            >> TraversableOnce >> GenTraversableOnce >> Any
+                            >> FilterMonadic >> Any
+                            >> HasNewBuilder >> Any
+                        >> Equals >> Any
+                    >> GenericTraversableTemplate >> HasNewBuilder >> Any
+                    >> GenIterable
+                        >> GenericTraversableTemplate >> HasNewBuilder >> Any
+                        >> GenTraversable
+                            >> GenericTraversableTemplate >> HasNewBuilder >> Any
+                            >> GenTraversableOnce >> Any
+                            >> GenTraversableLike >> Parallelizable >> GenTraversableOnce >> Any
+                        >> GenIterableLike >> GenTraversableLike >> Parallelizable >> GenTraversableOnce >> Any
+                    >> Traversable
+                        >> GenericTraversableTemplate >> HasNewBuilder >> Any
+                        >> TraversableOnce >> GenTraversableOnce >> Any
+                        >> GenTraversable
+                            >> GenericTraversableTemplate >> HasNewBuilder >> Any
+                            >> GenTraversableOnce >> Any
+                            >> GenTraversableLike >> Parallelizable >> GenTraversableOnce >> Any
+                        >> TraversableLike
+                            >> Parallelizable >> Any
+                            >> GenTraversableLike >> Parallelizable >> GenTraversableOnce >> Any
+                            >> TraversableOnce >> GenTraversableOnce >> Any
+                            >> FilterMonadic >> Any
+                            >> HasNewBuilder >> Any
+                >> (A) => Boolean
+        >> SetLike
+            >> Parallelizable >> Any
+            >> Subtractable >> AnyRef
+            >> GenSetLike
+                >> Parallelizable >> Any
+                >> Equals >> Any
+                >> (A) => Boolean
+                >> GenIterableLike >> GenTraversableLike >> Parallelizable >> GenTraversableOnce >> Any
+            >> IterableLike
+                >> GenIterableLike >> GenTraversableLike >> Parallelizable >> GenTraversableOnce >> Any
+                >> TraversableLike
+                    >> Parallelizable >> Any
+                    >> GenTraversableLike >> Parallelizable >> GenTraversableOnce >> Any
+                    >> TraversableOnce >> GenTraversableOnce >> Any
+                    >> FilterMonadic >> Any
+                    >> HasNewBuilder >> Any
+                >> Equals >> Any
+        >> Sorted >> AnyRef
+    >> collection.BitSet
+        >> BitSetLike >> ...
+        >> SortedSet
+            >> SortedSetLike
+                >> SetLike >> ...
+                >> Sorted >> AnyRef
+            >> Set >> ...
+    >> SortedSet >> ...
+    >> AbstractSet
+        >> Set >> ...
+        >> AbstractIterable
+            >> Iterable >> ...
+            >> AbstractTraversable >> Traversable >> ...
+    >> ScalaObject >> AnyRef >> Any
+
+
+    Hence, the final answer (heavily inspired by Basile Du Plessis') is:
+    BitSet >> Serializable >> java.io.Serializable >> collection.BitSet >>  BitSetLike >> Sorted >> collection.SortedSet >>
+    SortedSetLike >> Set >> Setlike >> Subtractable >> GenSet >> GenericSetTemplate >> GenSetLike >> Iterable >>
+    IterableLike >> Equals >> Traversable >> GenIterable >> GenTraversable >> GenericTraversableTemplate >> HasNewBuilder >>
+    TraversableLike >> GenTraversableLike >> Parallelizable >> TraversableOnce >> GenTraversableOnce >> FilterMonadic >>
+    Any >> (a) => Boolean >> AnyRef >> AbstractSet

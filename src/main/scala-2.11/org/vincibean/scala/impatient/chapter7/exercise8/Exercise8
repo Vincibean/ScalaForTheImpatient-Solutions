@@ -1,0 +1,10 @@
+Q: What is the effect of
+
+   import java._
+   import javax._
+
+   Is this a good idea?
+
+A: It will bring all packages and classes under the java and javax packages in scope. Considering the high amount of
+packages and classes under these, such generic imports are hardly a good idea. Moreover, given such a high number of
+packages and classe, this also brings a high chance of name clashes.

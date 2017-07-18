@@ -1,0 +1,40 @@
+Floating-point numbers
+
+A number representation (called a numeral system in mathematics) specifies some way of encoding a number, usually as a string of digits.
+
+There are several mechanisms by which strings of digits can represent numbers. In common mathematical notation, the digit string can be of any length, and the location of the radix point is indicated by placing an explicit "point" character (dot or comma) there. If the radix point is not specified, then it is implicitly an integer and the unstated radix point would be off the right-hand end of the string, next to the least significant digit. In fixed-point systems, a position in the string is specified for the radix point. So a fixed-point scheme might be to use a string of 8 decimal digits with the decimal point in the middle, whereby "00012345" would represent 1.2345.
+
+In scientific notation, the given number is scaled by a power of 10, so that it lies within a certain range—typically between 1 and 10, with the radix point appearing immediately after the first digit. The scaling factor, as a power of ten, is then indicated separately at the end of the number. For example, the orbital period of Jupiter's moon Io is 152853.5047 seconds, a value that would be represented in standard-form scientific notation as 1.528535047×105 seconds.
+
+Floating-point representation is similar in concept to scientific notation. Logically, a floating-point number consists of:
+
+    A signed (meaning negative or non-negative) digit string of a given length in a given base (or radix). This digit string is referred to as the significand, mantissa, or coefficient. The length of the significand determines the precision to which numbers can be represented. The radix point position is assumed always to be somewhere within the significand—often just after or just before the most significant digit, or to the right of the rightmost (least significant) digit. This article generally follows the convention that the radix point is set just after the most significant (leftmost) digit.
+    A signed integer exponent (also referred to as the characteristic, or scale), which modifies the magnitude of the number.
+
+To derive the value of the floating-point number, the significand is multiplied by the base raised to the power of the exponent, equivalent to shifting the radix point from its implied position by a number of places equal to the value of the exponent—to the right if the exponent is positive or to the left if the exponent is negative.
+
+Using base-10 (the familiar decimal notation) as an example, the number 152853.5047, which has ten decimal digits of precision, is represented as the significand 1528535047 together with 5 as the exponent. To determine the actual value, a decimal point is placed after the first digit of the significand and the result is multiplied by 105 to give 1.528535047×105, or 152853.5047. In storing such a number, the base (10) need not be stored, since it will be the same for the entire range of supported numbers, and can thus be inferred.
+
+Symbolically, this final value is:
+
+    \frac{s}{b^{\,p-1}} \times b^e,
+
+where s is the significand (ignoring any implied decimal point), p is the precision (the number of digits in the significand), b is the base (in our example, this is the number ten), and e is the exponent.
+
+Historically, several number bases have been used for representing floating-point numbers, with base two (binary) being the most common, followed by base ten (decimal), and other less common varieties, such as base sixteen (hexadecimal notation), and even base three (see Setun).
+
+A floating-point number is a rational number, because it can be represented as one integer divided by another; for example 1.45×103 is (145/100)*1000 or 145000/100. The base determines the fractions that can be represented; for instance, 1/5 cannot be represented exactly as a floating-point number using a binary base, but 1/5 can be represented exactly using a decimal base (0.2, or 2×10−1). However, 1/3 cannot be represented exactly by either binary (0.010101...) or decimal (0.333...), but in base 3, it is trivial (0.1 or 1×3−1) . The occasions on which infinite expansions occur depend on the base and its prime factors, as described in the article on Positional Notation.
+
+The way in which the significand (including its sign) and exponent are stored in a computer is implementation-dependent. The common IEEE formats are described in detail later and elsewhere, but as an example, in the binary single-precision (32-bit) floating-point representation, p = 24, and so the significand is a string of 24 bits. For instance, the number π's first 33 bits are:
+
+    11001001\ 00001111\ 1101101\underline{0}\ 10100010\ 0.
+
+If the leftmost bit is considered the 1st bit, then the 24th bit is zero and the 25th bit is 1; thus, in rounding to 24 bits, let's attribute to the 24th bit the value of the 25th, yielding:
+
+    11001001\ 00001111\ 1101101\underline{1}.
+
+When this is stored using the IEEE 754 encoding, this becomes the significand s with e = 1 (where s is assumed to have a binary point to the right of the first bit) after a left-adjustment (or normalization) during which leading or trailing zeros are truncated should there be any, which is unnecessary in this case; as a result of this normalization, the first bit of a non-zero binary significand is always 1, so it need not be stored, saving one bit of storage. In other words, from this representation, π is calculated as follows:
+
+    \begin{align} &\left( 1 + \sum_{n=1}^{p-1} \text{bit}_n\times 2^{-n} \right) \times 2^e\\ = &\left( 1 + 1\times 2^{-1} + 0\times 2^{-2} + 1\times 2^{-4} + 1\times2^{-7} + \dots + 1\times 2^{-23} \right) \times 2^1\\ = &\; 1.5707964\times 2\\ = &\; 3.1415928 \end{align}
+
+where n is the normalized significand's nth bit from the left, where counting starts with 1. Normalization, which is reversed by the addition of the implicit one, can be thought of as a form of compression; it allows a binary significand to be compressed into a field one bit shorter than the maximum precision, at the expense of extra processing.

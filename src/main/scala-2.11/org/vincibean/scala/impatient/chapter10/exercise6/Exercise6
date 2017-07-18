@@ -1,0 +1,25 @@
+Q:  In the Java AWT library, we have a class Container, a subclass of Component that
+    collects multiple components. For example, a Button is a Component, but a Panel
+    is a Container. That's the composite pattern at work, Swing has JComponent and
+    JButton, but if you look closely, you will notice something strange. JComponent
+    extends Container, even though it makes no sense to add other components to,
+    say, a JButton. The Swing designers would have ideally preferred the design
+    in Figure 10-4.
+    But that's not possible in Java. Explain why not. How could the design be
+    executed in Scala with traits?
+
+A:  In Java, multiple inheritance, that is the feature of some object-oriented computer programming languages
+    in which an object or class can inherit characteristics and features from more than one parent object or parent
+    class, isn't allowed. Only single inheritance, where an object or class may only inherit from one particular
+    object or class, is allowed. This is caused by the "diamond problem" (sometimes referred to as the "deadly diamond
+    of death", the name due to the shape of the class inheritance diagram in this situation), that is an ambiguity that
+    arises when two classes B and C inherit from A, and class D inherits from both B and C. If there is a method in A
+    that B and C have overridden, and D doesn't override it, then it's not clear which version of the method D should
+    inherit (that of B, or that of C?)
+    That's why it wasn't possible to have different objects from which to build a Component and a Container.
+    Everything had to be "linearized" by making the Container extend the Component.
+
+    In this case, the parent classes (Component, Container, JComponent, JContainer) add methods and constants that
+    will be used by the child classes. In Scala, this could have been accomplished by traits: a set of traits, each
+    containing a set of utility methods and constants, would have been created; then, classes like JButton and JPanel
+    could mixin these traits in order to be assembled with the methods and constants needed.

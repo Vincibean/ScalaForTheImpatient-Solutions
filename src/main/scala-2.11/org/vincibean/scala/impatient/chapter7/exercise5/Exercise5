@@ -1,0 +1,10 @@
+Q: What is the meaning of private[com] def giveRaise(rate: Double)? Is it useful?
+
+A: In Java, it's possible to make a class member belong to the package which contains that class, i.e. every object belonging
+to the given package (and only those objects!) have access to that class member.
+In Scala, you can achieve the same effect with a qualifiers like private[package_name]; moreover, you are given even more
+flexibility: you can declare a qualifier like private[package_containing_the_package],
+private[package_containing_the_package_containing_the_package], and so on.
+A qualifier like the one above (private[com]) restricts the access to all those classes that are somehow contained
+in package "com". Since this is the root package for most of the packages, a qualifier like this is accessible by almost
+every class, making this declaration hardly a good idea.
