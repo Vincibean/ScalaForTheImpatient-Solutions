@@ -23,7 +23,7 @@ package org.vincibean.scala.impatient.chapter2
   *
   * Created by Vincibean on 11/01/16.
   */
-package object exercise6 extends App {
+package object exercise6 {
 
   def stringMultiplication(string2multiply: String) = {
     var result = 1

@@ -25,7 +25,7 @@ import java.io.{FileInputStream, InputStream}
   *
   * Created by Vincibean on 14/03/16.
   */
-package object exercise9 extends App {
+package object exercise9 {
 
   def loggingBufferedInputStream: InputStream =
     new FileInputStream(getClass.getClassLoader.getResource("chapter10/exercise8/sagan.txt").getPath) with Buffering

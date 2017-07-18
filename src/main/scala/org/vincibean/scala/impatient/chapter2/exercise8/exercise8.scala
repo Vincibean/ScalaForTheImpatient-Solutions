@@ -23,7 +23,7 @@ package org.vincibean.scala.impatient.chapter2
   *
   * Created by Vincibean on 11/01/16.
   */
-package object exercise8 extends App {
+package object exercise8 {
 
   def product(string2multiply: String) = string2multiply.map(_.toInt).product
 

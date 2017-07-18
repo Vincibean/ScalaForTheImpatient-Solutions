@@ -23,7 +23,7 @@ package org.vincibean.scala.impatient.chapter7
   *
   * Created by Vincibean on 22/01/16.
   */
-package object exercise2 extends App {
+package object exercise2 {
 
   val theSameValue: Int = 17
 
