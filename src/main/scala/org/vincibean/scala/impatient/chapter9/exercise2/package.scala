@@ -20,7 +20,6 @@ package org.vincibean.scala.impatient.chapter9
 import java.io.PrintWriter
 
 import scala.io.Source
-import scala.util.{Failure, Success, Try}
 
 /**
   * Write a Scala program that reads a file with tabs, replaces each tab with spaces

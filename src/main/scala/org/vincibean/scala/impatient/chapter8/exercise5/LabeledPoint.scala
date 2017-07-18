@@ -26,4 +26,4 @@ package org.vincibean.scala.impatient.chapter8.exercise5
   *
   * Created by Vincibean on 24/01/16.
   */
-case class LabeledPoint(val label: String, override val x: Double, override val y: Double) extends Point(x, y)
+class LabeledPoint(val label: String, override val x: Double, override val y: Double) extends Point(x, y)

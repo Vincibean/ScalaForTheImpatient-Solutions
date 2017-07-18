@@ -46,11 +46,11 @@ trait PropertyChangeSupport {
     propertyChangeSupport.removePropertyChangeListener(listener)
   }
 
-  def getPropertyChangeListeners = {
+  def getPropertyChangeListeners: Array[PropertyChangeListener] = {
     propertyChangeSupport.getPropertyChangeListeners
   }
 
-  def hasListeners(listenerName: String) = {
+  def hasListeners(listenerName: String): Boolean = {
     propertyChangeSupport.hasListeners(listenerName)
   }
 

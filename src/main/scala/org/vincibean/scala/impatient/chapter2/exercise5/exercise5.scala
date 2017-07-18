@@ -25,6 +25,6 @@ package org.vincibean.scala.impatient.chapter2
 package object exercise5 {
 
   // TODO Check that n > 0
-  def countdown(n: Int) = n.to(0, -1).foreach(println(_))
+  def countdown(n: Int): Unit = n.to(0, -1).foreach(println(_))
 
 }

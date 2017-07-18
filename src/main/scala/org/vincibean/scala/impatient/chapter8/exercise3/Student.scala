@@ -34,7 +34,7 @@ class Student(studentName: String = "No name set yet", var registrationNumber: I
     this.registrationNumber = registrationNumber
   }
 
-  override def printOutput() = {
+  override def printOutput(): Unit = {
     super.printOutput()
     println(s"Registration Number: $registrationNumber")
   }

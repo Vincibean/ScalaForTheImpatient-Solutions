@@ -25,7 +25,7 @@ package org.vincibean.scala.impatient.chapter2
   */
 package object exercise1 {
 
-  def signum(value: Int) = {
+  def signum(value: Int): Int = {
     if (value > 0)
       1
     else if (value < 0)

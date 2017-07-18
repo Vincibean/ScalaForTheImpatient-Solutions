@@ -36,6 +36,6 @@ class Person(val name: String) extends Serializable {
     friends += p
   }
 
-  def isFriend(p: Person) = friends.contains(p)
+  def isFriend(p: Person): Boolean = friends.contains(p)
 
 }

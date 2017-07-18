@@ -34,6 +34,6 @@ class Counter {
       println("You reached the max value!")
   }
 
-  def current() = value
+  def current(): Int = value
 
 }

@@ -27,7 +27,7 @@ import scala.io.Source
   */
 package object exercise1 {
 
-  def reverseResource(relativePath: String) = Source
+  def reverseResource(relativePath: String): String = Source
     .fromInputStream(getClass.getClassLoader.getResourceAsStream(relativePath))
     .getLines()
     .toList

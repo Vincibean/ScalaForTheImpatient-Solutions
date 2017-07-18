@@ -18,10 +18,10 @@
 import org.vincibean.scala.impatient.chapter8.exercise6.{Circle, Point, Rectangle}
 
 // Testing the Shape hierarchy
-val circle: Circle = Circle(Point(3, 3), 3)
+val circle: Circle = new Circle(new Point(3, 3), 3)
 println(circle)
 println(circle.centerPoint)
 
-val rectangle: Rectangle = Rectangle(Point(-4, 2), 4, 8)
+val rectangle: Rectangle = new Rectangle(new Point(-4, 2), 4, 8)
 println(rectangle)
 println(rectangle.centerPoint)

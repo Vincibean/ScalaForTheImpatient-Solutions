@@ -25,10 +25,10 @@ package org.vincibean.scala.impatient.chapter6.exercise1
   */
 object Conversions {
 
-  def inchesToCentimeters(inches: Double) = 2.54 * inches
+  def inchesToCentimeters(inches: Double): Double = 2.54 * inches
 
-  def gallonsToLiters(gallons: Double) = 3.78541 * gallons
+  def gallonsToLiters(gallons: Double): Double = 3.78541 * gallons
 
-  def milesToKilometers(miles: Double) = 1.60934 * miles
+  def milesToKilometers(miles: Double): Double = 1.60934 * miles
 
 }

@@ -35,7 +35,7 @@ class SavingsAccount (initialBalance: Double) extends BankAccount(initialBalance
 
   private var transactionLeft = 3
 
-  override def deposit(amount: Double) = {
+  override def deposit(amount: Double): Double = {
     if (transactionLeft == 0) {
       super.deposit(amount - charge)
     } else {
@@ -44,7 +44,7 @@ class SavingsAccount (initialBalance: Double) extends BankAccount(initialBalance
     }
   }
 
-  override def withdraw(amount: Double) = {
+  override def withdraw(amount: Double): Double = {
     if (transactionLeft == 0) {
       super.withdraw(amount - charge)
     } else {

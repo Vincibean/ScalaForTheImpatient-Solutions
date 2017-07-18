@@ -35,7 +35,7 @@ class Fraction(n: Int, d: Int) {
 
   override def toString: String = num + "/" + den
 
-  def sign(a: Int) = if (a > 0) 1 else if (a < 0) -1 else 0
+  def sign(a: Int): Int = if (a > 0) 1 else if (a < 0) -1 else 0
 
   def gcd(a: Int, b: Int): Int = if (b == 0) abs(a) else gcd(b, a % b)
 

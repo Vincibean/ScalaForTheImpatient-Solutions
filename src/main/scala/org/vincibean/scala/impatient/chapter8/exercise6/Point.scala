@@ -24,4 +24,4 @@ package org.vincibean.scala.impatient.chapter8.exercise6
   *
   * Created by Vincibean on 24/01/16.
   */
-case class Point(val x: Double, val y: Double)
+class Point(val x: Double, val y: Double)

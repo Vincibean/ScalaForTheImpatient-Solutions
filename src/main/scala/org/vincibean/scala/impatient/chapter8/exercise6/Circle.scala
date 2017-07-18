@@ -24,4 +24,4 @@ package org.vincibean.scala.impatient.chapter8.exercise6
   *
   * Created by Vincibean on 24/01/16.
   */
-case class Circle(override val centerPoint: Point, val radius: Double) extends Shape
+class Circle(override val centerPoint: Point, val radius: Double) extends Shape

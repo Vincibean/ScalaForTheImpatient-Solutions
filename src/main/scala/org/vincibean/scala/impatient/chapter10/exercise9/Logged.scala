@@ -25,6 +25,6 @@ package org.vincibean.scala.impatient.chapter10.exercise9
   */
 trait Logged {
 
-  def log(msg: String) = { }
+  def log(msg: String): Unit = { }
 
 }

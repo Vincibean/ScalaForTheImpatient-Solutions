@@ -25,6 +25,6 @@ package org.vincibean.scala.impatient.chapter2
   */
 package object exercise8 {
 
-  def product(string2multiply: String) = string2multiply.map(_.toInt).product
+  def product(string2multiply: String): Int = string2multiply.map(_.toInt).product
 
 }

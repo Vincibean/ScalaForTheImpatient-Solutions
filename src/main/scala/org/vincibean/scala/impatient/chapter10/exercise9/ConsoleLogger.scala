@@ -25,6 +25,6 @@ package org.vincibean.scala.impatient.chapter10.exercise9
   */
 trait ConsoleLogger extends Logged {
 
-  override def log(msg: String) = { println("\n" + msg) }
+  override def log(msg: String): Unit = println("\n" + msg)
 
 }

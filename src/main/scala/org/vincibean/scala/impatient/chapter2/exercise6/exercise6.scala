@@ -25,7 +25,7 @@ package org.vincibean.scala.impatient.chapter2
   */
 package object exercise6 {
 
-  def stringMultiplication(string2multiply: String) = {
+  def stringMultiplication(string2multiply: String): Int = {
     var result = 1
     for(char: Char <- string2multiply){
       result *= char

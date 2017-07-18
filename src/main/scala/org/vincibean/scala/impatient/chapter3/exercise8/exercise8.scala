@@ -35,7 +35,7 @@ import scala.collection.mutable.ArrayBuffer
   */
 package object exercise8 {
 
-  def newDropping(a: ArrayBuffer[Int]) = {
+  def newDropping(a: ArrayBuffer[Int]): Unit = {
     // First, let’s use a for / yield loop to find all matching index values.
     val indices = (for (i <- a.indices if a(i) < 0) yield i).drop(1)
     // Then we visit the indices in reverse.

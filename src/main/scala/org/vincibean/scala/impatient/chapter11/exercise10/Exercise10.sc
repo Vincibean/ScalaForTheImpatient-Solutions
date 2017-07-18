@@ -19,16 +19,16 @@ import org.vincibean.scala.impatient.chapter11.exercise10.RichFile
 
 // Testing the unapplySeq operator
 "some random text" match {
-  case RichFile(w) => println("1st test: OK")
-  case RichFile(w1, w2) =>  println("This should not work: wrong input")
-  case RichFile(w1, w2, w3) => println("This should not work: wrong input")
+  case RichFile(_) => println("1st test: OK")
+  case RichFile(_, _) =>  println("This should not work: wrong input")
+  case RichFile(_, _, _) => println("This should not work: wrong input")
   case _ => println("This should not work: wrong input")
 }
 
 "" match {
-  case RichFile(e) => println("This should not work: wrong input")
-  case RichFile(e1, e2) =>  println("This should not work: wrong input")
-  case RichFile(e1, e2, e3) => println("This should not work: wrong input")
+  case RichFile(_) => println("This should not work: wrong input")
+  case RichFile(_, _) =>  println("This should not work: wrong input")
+  case RichFile(_, _, _) => println("This should not work: wrong input")
   case _ => println("2nd test: OK")
 }
 

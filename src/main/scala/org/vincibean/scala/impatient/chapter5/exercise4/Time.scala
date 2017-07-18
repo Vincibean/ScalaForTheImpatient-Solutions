@@ -31,11 +31,11 @@ class Time(timeHours: Int, timeMinutes: Int) {
 
   private val minutesSinceMidnight = timeHours * 60 + timeMinutes
 
-  val hours = minutesSinceMidnight / 60     // This could be substituted with val hours = timeHours,
+  val hours: Int = minutesSinceMidnight / 60     // This could be substituted with val hours = timeHours,
                                             // but the exercise asks to use the number of minutes since
                                             // midnight as internal representation.
 
-  val minutes = minutesSinceMidnight % 60     // This could be substituted with val minutes = timeMinutes,
+  val minutes: Int = minutesSinceMidnight % 60     // This could be substituted with val minutes = timeMinutes,
                                               // but the exercise asks to use the number of minutes since
                                               // midnight as internal representation.
 
