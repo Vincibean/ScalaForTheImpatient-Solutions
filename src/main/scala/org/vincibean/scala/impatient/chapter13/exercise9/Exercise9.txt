@@ -1,0 +1,24 @@
+Q:  Harry Hacker writes a program that accepts a sequence of file names on the
+    command line. For each, he starts a new thread that reads the file and updates
+    a letter frequency map, declared as
+
+        val frequencies = new scala.collection.mutable.HashMap[Char, Int] with
+            scala.collection.mutable.SynchronizedMap[Char, Int]
+
+    When reading a letter c, he calls
+
+        frequencies.getOrElse(c, 0) + 1
+
+    Why won’t this work? Will it work if he used instead
+
+        import scala.collection.JavaConversions.asScalaConcurrentMap
+        val frequencies: scala.collection.mutable.ConcurrentMap[Char, Int] =
+            new java.util.concurrent.ConcurrentHashMap[Char, Int]
+
+
+A:  If 2 threads concurrently update the same frequency, the result will be undefined.
+    The issue here is that, when reading a letter c, he calls `frequencies.getOrElse(c, 0)`, will add 1 and then he
+    will write the result back; however, between the reading and the writing the mutable Map might mutate, thus giving
+    an undefined result.
+    This happen for the SynchronizedMap as well as the ConcurrentHashMap, because the issue is with the `Int` type
+    as value of the Map; it should work with a value type like AtomicInteger.

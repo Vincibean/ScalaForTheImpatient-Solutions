@@ -1,0 +1,23 @@
+Q:  Harry Hacker reads a file into a string and wants to use a parallel collection
+    to update the letter frequencies concurrently on portions of the string. He
+    uses the following code:
+
+        val frequencies = new scala.collection.mutable.HashMap[Char, Int] for (c <- str.par)
+            frequencies(c) = frequencies.getOrElse(c, 0) + 1
+
+    Why is this a terrible idea? How can he really parallelize the computation?
+    (Hint: Use aggregate)
+
+A:  Again, if 2 threads concurrently update the same frequency, the result will be undefined.
+    The issue here is that, when reading a letter c, he calls `frequencies.getOrElse(c, 0)`, will add 1 and then he
+    will write the result back; however, between the reading and the writing the mutable Map might mutate, thus giving
+    an undefined result.
+    In order to really parallelize the computation, one should use the more robust method `aggregate`; moreover, an
+    immutable collection is preferred:
+
+    val lines: Stream[Char] = Source.fromURL(getClass.getResource("/a.csv"), "UTF-8").getLines().toStream.flatten
+
+    lines.par.aggregate(Map.empty[Char, Int])(
+        (acc, el) => acc + (el -> (acc.getOrElse(el, 0) + 1)),
+        (acc1, acc2) => acc1 ++ acc2
+    )
