@@ -18,10 +18,12 @@
 import scala.util.Random
 import org.vincibean.scala.impatient.chapter2.exercise5.countdown
 
-// Let's test the countdown(n: Int) exercise1.
 print("Select an integer number > 0: ")
 val start = Random.nextInt(20)
 println()
 println("Starting countdown")
 countdown(start)
 println("BOOOOM!!")
+
+println("Let's try with a negative number now")
+countdown(-4)

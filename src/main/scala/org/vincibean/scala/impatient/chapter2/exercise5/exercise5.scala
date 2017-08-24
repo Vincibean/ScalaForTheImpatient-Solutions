@@ -24,7 +24,10 @@ package org.vincibean.scala.impatient.chapter2
   */
 package object exercise5 {
 
-  // TODO Check that n > 0
-  def countdown(n: Int): Unit = n.to(0, -1).foreach(println(_))
+  def countdown(n: Int): Unit = if (n <= 0) {
+    println("The input number should be greater than 0!")
+  } else {
+    n.to(0, -1).foreach(println(_))
+  }
 
 }
