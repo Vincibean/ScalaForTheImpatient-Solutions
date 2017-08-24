@@ -19,5 +19,7 @@
 // for (int i = 10; i >= 0; i--) System.out.println(i);
 println("One simple way: explicitly defining the step as -1")
 for (i <- 10.to(0, -1)) println(i)
+println("Another way to define the step as -1")
+for (i <- 10.to(0).by(-1)) println(i)
 println("Another simple way: reversing the Range")
 for (i <- (1 to 10).reverse) println(i)
