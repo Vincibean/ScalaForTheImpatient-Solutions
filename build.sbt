@@ -1,3 +1,3 @@
 name := "Scala for the Impatient - Solutions"
 
-scalaVersion := "2.11.8"
+scalaVersion := "2.12.3"
