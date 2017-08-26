@@ -15,17 +15,14 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import java.awt.datatransfer._
+import java.util.TimeZone._
 
-import scala.collection.JavaConversions.asScalaBuffer
-import scala.collection.mutable
-
-// Import java.awt.datatransfer._ and make an object of type SystemFlavorMap with the call
-//   val flavors = SystemFlavorMap.getDefaultFlavorMap().asInstanceOf[SystemFlavorMap]
-// Then call the getNativesForFlavor method with parameter DataFlavor.imageFlavor
-// and get the return value as a Scala buffer. (Why this obscure class? It’s hard
-// to find uses of java.util.List in the standard Java library.)
-val flavors = SystemFlavorMap.getDefaultFlavorMap.asInstanceOf[SystemFlavorMap]
-val flavorsBuffer : mutable.Buffer[String] = flavors.getNativesForFlavor(DataFlavor.imageFlavor)
-println("Did we really manage to turn a java.util.List to a scala.collection.mutable.Buffer? " +
-  s"${flavorsBuffer.isInstanceOf[mutable.Buffer[String]]}")
+// Make a collection of all time zones returned by java.util.TimeZone.getAvailableIDs that are in America.
+// Strip off the "America/" prefix and sort the result.
+println(getAvailableIDs.filter(_.contains("America/")).map(_.substring(8)).sorted.mkString(", "))
+println("Using another approach: regular expressions.")
+val americanIds = for {
+  id <- getAvailableIDs
+  j = """(?<=America/)([A-Za-z/_-]+)""".r findFirstIn id if j.isDefined
+} yield j.get
+println(americanIds.sorted.mkString(", "))

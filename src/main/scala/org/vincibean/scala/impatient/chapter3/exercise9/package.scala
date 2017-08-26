@@ -15,18 +15,23 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import org.vincibean.scala.impatient.chapter3.exercise9.newDropping
+package org.vincibean.scala.impatient.chapter3
 
 import scala.collection.mutable.ArrayBuffer
 
-// Let's test the function
-val initialArray = ArrayBuffer(1, 2, -12, 1, -2, -12, -12, 1, -2)
-println(s"Initial Array: ${initialArray.mkString(", ")}")
-newDropping(initialArray)
-println(s"After dropping the 1st negative number (if any!): ${initialArray.mkString(", ")}")
+/**
+  * Improve the solution of the preceding exercise by collecting the positions
+  * that should be moved and their target positions. Make those moves and
+  * truncate the buffer. Don’t copy any elements before the first unwanted
+  * element.
+  */
+package object exercise9 {
 
-// Now with an Array that doesn't contain negative numbers
-val anotherArray = ArrayBuffer(1, 2, 1, 1, 2)
-println(s"Initial Array: ${anotherArray.mkString(", ")}")
-newDropping(anotherArray)
-println(s"After dropping the 1st negative number (if any!): ${anotherArray.mkString(", ")}")
+  def newDropping(a: ArrayBuffer[Int]): Unit = {
+    val positionsToMoveNeg = for (i <- a.indices if a(i) < 0) yield i
+    val positionsToMove = a.indices.diff(positionsToMoveNeg.drop(1))
+    for (j <- positionsToMove.indices) a(j) = a(positionsToMove(j))
+    a.trimEnd(a.length - positionsToMove.length)
+  }
+
+}

@@ -20,18 +20,24 @@ package org.vincibean.scala.impatient.chapter3
 import scala.collection.mutable.ArrayBuffer
 
 /**
-  * Rewrite the example at the end of Section 3.4, “Transforming Arrays,” on
-  * page 34 using the drop method for dropping the index of the first match. Look
-  * the method up in Scaladoc.
+  * Suppose you are given an array buffer of integers and want to remove all but
+  * the first negative number. Here is a sequential solution that sets a flag
+  * when the first negative number is called, then removes all elements beyond.
   *
-  * The example is:
-  * Given a sequence of integers, we want to remove all but the first negative number.
-  * First, let’s use a for / yield loop to find all matching index values.
-  *   val indexes = for (i <- 0 until a.length if a(i) < 0) yield i
-  * Then we visit the indexes in reverse, except for indexes(0).
-  *   for (j <- (1 until indexes.length).reverse) a.remove(indexes(j))
+  *   var first = true
+  *   var n = a.length
+  *   var i=0
+  *   while (i < n){
+  *     if (a(i) >= 0) i += 1
+  *     else {
+  *       if (first) { first = false; i += 1 }
+  *       else { a.remove(i); n -= 1 }
+  *     }
+  *   }
   *
-  * Created by Vincibean on 12/01/16.
+  * This is a complex and inefficient solution. Rewrite it in Scala by collecting
+  * positions of the negative elements, dropping the first element, reversing the
+  * sequence, and calling a.remove(i) for each index.
   */
 package object exercise8 {
 
