@@ -18,7 +18,9 @@
 // What happens when you zip together two strings, such as "Hello".zip("World") ?
 // Come up with a plausible use case.
 
-// Let's come up with a use case similar to the one proposed in the first exercise of the chapter.
-val gizmos = List("CPU", "Hard Drive", "Keyboard", "Joystick")
-val prices = List(327, 123, 30, 45)
-println((gizmos zip prices).mkString(", "))
+// Similarly to the case provided by Basile du Plessis here:
+// https://github.com/BasileDuPlessis/scala-for-the-impatient/blob/master/src/main/scala/com/basile/scala/ch04/Ex10.scala
+// Let's count the number of differences in two words
+"Here's a word".zip("Here's a work")
+  .map(pair => pair._1 != pair._2)
+  .count(b => b == true) // this could be simplified; we're taking it in this way for readability
