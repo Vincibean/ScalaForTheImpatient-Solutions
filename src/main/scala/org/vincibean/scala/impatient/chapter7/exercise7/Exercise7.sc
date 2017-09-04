@@ -23,13 +23,10 @@ javaHashMap.put("a", 1)
 javaHashMap.put("b", 2)
 javaHashMap.put("c", 3)
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.mutable.{Map => ScalaMap}
-// We don't need to explicitly define a Scala HashMap: the compiler will do it for us.
-// While there is a more concise solution involving JavaConverter functions, this don't explicitly produce
-// a Scala Hash Map as required by the exercise.
 val scalaMap: ScalaMap[String, Int] = for {
-  (k, v) <- javaHashMap
+  (k, v) <- javaHashMap.asScala
 } yield k -> v
 
 println(scalaMap.mkString(", "))
