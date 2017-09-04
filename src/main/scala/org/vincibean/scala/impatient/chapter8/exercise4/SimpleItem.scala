@@ -27,4 +27,4 @@ package org.vincibean.scala.impatient.chapter8.exercise4
   *
   * Created by dre on 23/01/16.
   */
-class SimpleItem(override val price: Double, override val description: String) extends Item
+class SimpleItem(val price: Double, val description: String) extends Item
