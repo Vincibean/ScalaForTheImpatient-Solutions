@@ -26,6 +26,6 @@ package org.vincibean.scala.impatient.chapter8.exercise6
   */
 class Rectangle(val upperRightPoint: Point, val height: Double, val width: Double) extends Shape {
 
-  override def centerPoint: Point = new Point(upperRightPoint.x + width / 2 , upperRightPoint.y - height / 2)
+  def centerPoint: Point = new Point(upperRightPoint.x + width / 2 , upperRightPoint.y - height / 2)
 
 }
