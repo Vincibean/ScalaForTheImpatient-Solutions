@@ -24,8 +24,8 @@ println(antVal.env.length)    // 0
 println(antDef.env.length)    // 2
 
 // In the first case (antVal), env has been set to an array of length 0. This is because the range method returns 0,
-// the initial value of all integer fields when an object is allocated. This behaviour doesn't change if range is
-// defined as val because val range is defined after primary constructor call.
+// the initial value of all integer fields when an object is allocated. This happens because val range
+// is defined after primary constructor call.
 // On the other hand, in the second case (antDef), env has been set to an array of length 2. This is because
 // range is a method (in Creature as well as in AntDef), and as such it's called during primary constructor call
 // and defined before it.
