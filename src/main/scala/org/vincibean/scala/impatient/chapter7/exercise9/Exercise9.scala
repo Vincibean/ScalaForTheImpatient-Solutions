@@ -17,22 +17,21 @@
 
 package org.vincibean.scala.impatient.chapter7.exercise9
 
+import scala.io.StdIn
+
 /**
   * Write a program that imports the java.lang.System class, reads the user name
-  * from the user.name system property, reads a password from the Console object,
-  * and prints a message to the standard error stream if the password is not "secret".
-  * Otherwise, print a greeting to the standard output stream. Do not use
-  * any other imports, and do not use any qualified names (with dots).
-  *
-  * Created by Vincibean on 22/01/16.
+  * from the user.name system property, reads a password from the StdIn object,
+  * and prints a message to the standard error stream if the password is not
+  * "secret". Otherwise, print a greeting to the standard output stream. Do not
+  * use any other imports, and do not use any qualified names (with dots).
   */
 object Exercise9 extends App {
 
+  // No need to import java.lang.System, since every Scala program implicitly starts with "import java.lang._"
   val username: String = System.getProperty("user.name")
   println("Insert your very secret password: ")
-  // readLine() is deprecated; scala.io.StdIn should be used instead, yet the
-  // exercise forbids us to "use any other imports" and to "use any qualified names (with dots)".
-  if (Console.readLine().equals("secret")) {
+  if (StdIn.readLine().equals("secret")) {
     System.out.println(s"Greetings $username!")
   } else {
     System.err.println("Wrong Password!")
