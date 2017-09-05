@@ -17,6 +17,8 @@
 
 package org.vincibean.scala.impatient.chapter9
 
+import java.io.File
+
 import scala.io.Source
 
 /**
@@ -28,7 +30,7 @@ import scala.io.Source
 package object exercise3 {
 
   def getFilteredResource(relativePath: String): Array[String] = Source
-    .fromInputStream(getClass.getClassLoader.getResourceAsStream(relativePath))
+    .fromFile(new File(getClass.getClassLoader.getResource(relativePath).toURI))
     .getLines()
     .toList
     .mkString(" ")
