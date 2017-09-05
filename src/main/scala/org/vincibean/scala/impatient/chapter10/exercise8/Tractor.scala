@@ -15,7 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter10.exercise7
+package org.vincibean.scala.impatient.chapter10.exercise8
 
 /**
   * There are dozens of Scala trait tutorials with silly examples of barking dogs
@@ -23,11 +23,7 @@ package org.vincibean.scala.impatient.chapter10.exercise7
   * tedious and not very helpful, but designing your own is very illuminating.
   * Make your own silly trait hierarchy example that demonstrates layered
   * traits, concrete and abstract methods, and concrete and abstract fields.
-  *
-  * Created by Vincibean on 10/03/16
   */
-trait HasSubmachineGun {
-
-  def shoot(): Unit = println("Ouch! I could hurt someone with this thing!")
-
+class Tractor extends HasWheels {
+  val wheels: Int = 4
 }

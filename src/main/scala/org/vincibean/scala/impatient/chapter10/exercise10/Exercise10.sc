@@ -15,16 +15,10 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter10.exercise9
+import org.vincibean.scala.impatient.chapter10.exercise10.loggingBufferedInputStream
 
-/**
-  * Using the logger traits from this chapter, add logging to the solution of
-  * the preceding problem that demonstrates buffering.
-  *
-  * Created by Vincibean on 14/03/16.
-  */
-trait ConsoleLogger extends Logged {
-
-  override def log(msg: String): Unit = println("\n" + msg)
-
+// Testing the new Buffering + Logger trait
+val container = new Array[Byte](256)
+while (loggingBufferedInputStream.read(container) != -1) {
+  container.map(_.toChar).foreach(print)
 }

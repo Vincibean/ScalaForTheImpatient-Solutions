@@ -15,9 +15,21 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import org.vincibean.scala.impatient.chapter10.exercise8.bufferedInputStream
+import org.vincibean.scala.impatient.chapter10.exercise8.{HasSubmachineGun, Soldier, Tank, Tractor}
 
-// Testing the new Buffering trait
-val container = new Array[Byte](1024)
-bufferedInputStream.read(container)
-container.map(_.toChar).foreach(print)
+// Testing (and demonstrating) the silly trait hierarchy example
+val jane: Soldier = new Soldier
+val metalSlug: Tank = new Tank
+val tom: Tractor = new Tractor
+
+jane.shoot()
+metalSlug.shoot()
+// tom.shoot()  Compilation error here!
+
+// jane.leaveTracks()  Compilation error here!
+metalSlug.leaveTracks()
+tom.leaveTracks()
+
+val crazyTom = new Tank with HasSubmachineGun
+crazyTom.leaveTracks()
+crazyTom.shoot()      // crazyTom the tractor has a submachine gun (!), so it can shoot

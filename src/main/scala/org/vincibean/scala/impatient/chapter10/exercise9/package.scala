@@ -20,15 +20,15 @@ package org.vincibean.scala.impatient.chapter10
 import java.io.{FileInputStream, InputStream}
 
 /**
-  * Using the logger traits from this chapter, add logging to the solution of
-  * the preceding problem that demonstrates buffering.
+  * In the java.io library, you add buffering to an input stream with a
+  * BufferedInputReader decorator. Reimplement buffering as a trait. For simplicity,
+  * override the read method.
   *
-  * Created by Vincibean on 14/03/16.
+  * Created by Vincibean on 10/03/16.
   */
 package object exercise9 {
 
-  def loggingBufferedInputStream: InputStream =
-    new FileInputStream(getClass.getClassLoader.getResource("chapter10/exercise8/sagan.txt").getPath) with Buffering
-
+  def bufferedInputStream: InputStream =
+    new FileInputStream(getClass.getClassLoader.getResource("chapter10/exercise9/sagan.txt").getPath) with Buffering
 
 }

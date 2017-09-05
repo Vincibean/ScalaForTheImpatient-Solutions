@@ -15,22 +15,19 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter10.exercise9
-
-import java.io.{BufferedInputStream, InputStream}
+package org.vincibean.scala.impatient.chapter10.exercise8
 
 /**
-  * In the java.io library, you add buffering to an input stream with a
-  * BufferedInputReader decorator. Reimplement buffering as a trait. For simplicity,
-  * override the read method.
-  *
-  * Created by Vincibean on 10/03/16.
+  * There are dozens of Scala trait tutorials with silly examples of barking dogs
+  * or philosophizing frogs. Reading through contrived hierarchies can be
+  * tedious and not very helpful, but designing your own is very illuminating.
+  * Make your own silly trait hierarchy example that demonstrates layered
+  * traits, concrete and abstract methods, and concrete and abstract fields.
   */
-trait Buffering {
-  this: InputStream =>
+trait HasSubmachineGun {
 
-  val buffering = new BufferedInputStream(this)
+  def ammo: Int
 
-  override def read(b: Array[Byte]): Int = buffering.read(b)
+  def shoot(): Unit = println("Ouch! I could hurt someone with this thing!")
 
 }

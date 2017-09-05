@@ -15,16 +15,17 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter10.exercise9
+package org.vincibean.scala.impatient.chapter10.exercise8
 
 /**
-  * Using the logger traits from this chapter, add logging to the solution of
-  * the preceding problem that demonstrates buffering.
-  *
-  * Created by Vincibean on 14/03/16.
+  * There are dozens of Scala trait tutorials with silly examples of barking dogs
+  * or philosophizing frogs. Reading through contrived hierarchies can be
+  * tedious and not very helpful, but designing your own is very illuminating.
+  * Make your own silly trait hierarchy example that demonstrates layered
+  * traits, concrete and abstract methods, and concrete and abstract fields.
   */
-trait Logged {
-
-  def log(msg: String): Unit = { }
-
+class Tank extends HasSubmachineGun with HasWheels {
+  val ammo: Int = 500 * 100
+  val wheels: Int = 0 // I don't have wheels; I have continuous tracks
+  val tracks: Int = 2 // I don't have wheels; I have continuous tracks
 }

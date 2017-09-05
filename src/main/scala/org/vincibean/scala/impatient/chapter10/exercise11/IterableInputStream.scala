@@ -15,21 +15,28 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import org.vincibean.scala.impatient.chapter10.exercise7.{HasSubmachineGun, Soldier, Tank, Tractor}
+package org.vincibean.scala.impatient.chapter10.exercise11
 
-// Testing (and demonstrating) the silly trait hierarchy example
-val jane: Soldier = new Soldier
-val metalSlug: Tank = new Tank
-val tom: Tractor = new Tractor
+import java.io.InputStream
 
-jane.shoot()
-metalSlug.shoot()
-// tom.shoot()  Compilation error here!
+import scala.collection.AbstractIterator
 
-// jane.leaveTracks()  Compilation error here!
-metalSlug.leaveTracks()
-tom.leaveTracks()
+/**
+  * Implement a class IterableInputStream that extends java.io.InputStream with the
+  * trait Iterable[Byte].
+  *
+  * Created by Vincibean on 14/03/16.
+  */
+class IterableInputStream(is: InputStream) extends InputStream with Iterable[Byte] {
 
-val crazyTom = new Tank with HasSubmachineGun
-crazyTom.leaveTracks()
-crazyTom.shoot()      // crazyTom the tractor has a submachine gun (!), so it can shoot
+  override def iterator: Iterator[Byte] = new AbstractIterator[Byte] {
+
+    override def hasNext: Boolean = is.available > 0
+
+    override def next(): Byte = is.read().toByte
+
+  }
+
+  override def read(): Int = is.read()
+
+}

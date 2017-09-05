@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016  Vincibean <Andre Bessi>
+ * Copyright (C) 2017  Vincibean <Andre Bessi>
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -18,12 +18,16 @@
 package org.vincibean.scala.impatient.chapter10.exercise7
 
 /**
-  * There are dozens of Scala trait tutorials with silly examples of barking dogs
-  * or philosophizing frogs. Reading through contrived hierarchies can be
-  * tedious and not very helpful, but designing your own is very illuminating.
-  * Make your own silly trait hierarchy example that demonstrates layered
-  * traits, concrete and abstract methods, and concrete and abstract fields.
-  *
-  * Created by Vincibean on 10/03/16
+  * Construct an example where a class needs to be recompiled when one of the
+  * mixins changes. Start with class SavingsAccount extends Account with ConsoleLogger.
+  * Put each class and trait in a separate source file. Add a field to Account. In Main
+  * (also in a separate source file), construct a SavingsAccount and access the new
+  * field. Recompile all files except for SavingsAccount and verify that the program works.
+  * Now add a field to ConsoleLogger and access it in Main. Again, recompile
+  * all files except for SavingsAccount. What happens? Why?
   */
-class Tractor extends HasWheels
+class Account {
+  var balance = 0.0
+  val bank = "Scala Bank"
+}
+

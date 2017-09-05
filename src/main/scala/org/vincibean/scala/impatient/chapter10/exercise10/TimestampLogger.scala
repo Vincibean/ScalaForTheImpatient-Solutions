@@ -15,7 +15,9 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter10.exercise9
+package org.vincibean.scala.impatient.chapter10.exercise10
+
+import java.util.Date
 
 /**
   * Using the logger traits from this chapter, add logging to the solution of
@@ -23,11 +25,10 @@ package org.vincibean.scala.impatient.chapter10.exercise9
   *
   * Created by Vincibean on 14/03/16.
   */
-trait ShortLogger extends Logged {
-  val maxLength = 15
+trait TimestampLogger extends Logged {
 
   override def log(msg: String): Unit = {
-    super.log(if (msg.length <= maxLength) msg else msg.substring(0, msg.length - 3) + "...")
+    super.log(new Date() + " " + msg)
   }
 
 }

@@ -15,19 +15,16 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter10.exercise7
+package org.vincibean.scala.impatient.chapter10.exercise10
 
 /**
-  * There are dozens of Scala trait tutorials with silly examples of barking dogs
-  * or philosophizing frogs. Reading through contrived hierarchies can be
-  * tedious and not very helpful, but designing your own is very illuminating.
-  * Make your own silly trait hierarchy example that demonstrates layered
-  * traits, concrete and abstract methods, and concrete and abstract fields.
+  * Using the logger traits from this chapter, add logging to the solution of
+  * the preceding problem that demonstrates buffering.
   *
-  * Created by Vincibean on 10/03/16
+  * Created by Vincibean on 14/03/16.
   */
-trait HasWheels {
+trait ConsoleLogger extends Logged {
 
-  def leaveTracks(): Unit = println("I'm leaving so many tracks behind...")
+  override def log(msg: String): Unit = println("\n" + msg)
 
 }

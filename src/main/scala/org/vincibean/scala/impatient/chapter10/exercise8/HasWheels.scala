@@ -15,28 +15,19 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter10.exercise10
-
-import java.io.InputStream
-
-import scala.collection.AbstractIterator
+package org.vincibean.scala.impatient.chapter10.exercise8
 
 /**
-  * Implement a class IterableInputStream that extends java.io.InputStream with the
-  * trait Iterable[Byte].
-  *
-  * Created by Vincibean on 14/03/16.
+  * There are dozens of Scala trait tutorials with silly examples of barking dogs
+  * or philosophizing frogs. Reading through contrived hierarchies can be
+  * tedious and not very helpful, but designing your own is very illuminating.
+  * Make your own silly trait hierarchy example that demonstrates layered
+  * traits, concrete and abstract methods, and concrete and abstract fields.
   */
-class IterableInputStream(is: InputStream) extends InputStream with Iterable[Byte] {
+trait HasWheels {
 
-  override def iterator: Iterator[Byte] = new AbstractIterator[Byte] {
+  def wheels: Int
 
-    override def hasNext: Boolean = is.available > 0
-
-    override def next(): Byte = is.read().toByte
-
-  }
-
-  override def read(): Int = is.read()
+  def leaveTracks(): Unit = println("I'm leaving so many tracks behind...")
 
 }

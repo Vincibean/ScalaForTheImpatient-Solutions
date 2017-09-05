@@ -15,10 +15,9 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import org.vincibean.scala.impatient.chapter10.exercise9.loggingBufferedInputStream
+import org.vincibean.scala.impatient.chapter10.exercise9.bufferedInputStream
 
-// Testing the new Buffering + Logger trait
-val container = new Array[Byte](256)
-while (loggingBufferedInputStream.read(container) != -1) {
-  container.map(_.toChar).foreach(print)
-}
+// Testing the new Buffering trait
+val container = new Array[Byte](1024)
+bufferedInputStream.read(container)
+container.map(_.toChar).foreach(print)

@@ -15,20 +15,19 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.vincibean.scala.impatient.chapter10
-
-import java.io.{FileInputStream, InputStream}
+package org.vincibean.scala.impatient.chapter10.exercise10
 
 /**
-  * In the java.io library, you add buffering to an input stream with a
-  * BufferedInputReader decorator. Reimplement buffering as a trait. For simplicity,
-  * override the read method.
+  * Using the logger traits from this chapter, add logging to the solution of
+  * the preceding problem that demonstrates buffering.
   *
-  * Created by Vincibean on 10/03/16.
+  * Created by Vincibean on 14/03/16.
   */
-package object exercise8 {
+trait ShortLogger extends Logged {
+  val maxLength = 15
 
-  def bufferedInputStream: InputStream =
-    new FileInputStream(getClass.getClassLoader.getResource("chapter10/exercise8/sagan.txt").getPath) with Buffering
+  override def log(msg: String): Unit = {
+    super.log(if (msg.length <= maxLength) msg else msg.substring(0, msg.length - 3) + "...")
+  }
 
 }
