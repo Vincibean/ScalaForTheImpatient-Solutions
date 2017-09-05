@@ -20,12 +20,10 @@ package org.vincibean.scala.impatient.chapter9
 import java.io.{ObjectInputStream, FileInputStream, ObjectOutputStream, FileOutputStream}
 
 /**
-  * Expand the example with the serializable Person class that stores a collection
-  * of friends. Construct a few Person objects, make some of them friends of
-  * another, and then save an Array[Person] to a file. Read the array back in and
-  * verify that the friend relations are intact.
-  *
-  * Created by Vincibean on 27/01/16.
+  * Expand the example in Section 9.8, “Serialization,” on page 113. Construct a
+  * few Person objects, make some of them friends of another, and save an
+  * Array[Person] to a file. Read the array back in and verify that the friend relations
+  * are intact.
   */
 package object exercise10 {
 
