@@ -1,0 +1,93 @@
+Q:  Using javap -c -private, analyze how the call super.log(msg) is translated to Java.
+    How does the same call invoke two different methods, depending on the
+    mixin order?
+
+A:  Unlike other exercises, for this one the text is a bit vague. We are considering the case in which the
+    "super.log(msg)" invocation refers to the Logger example of this chapter, and the mixin order part refers to the
+    different behaviour of two classes mixing in the same traits in different order, as seen in
+    Section 10.5 "Layered Traits" (pag. 126). For this reason, we created two classes:
+
+        class SavingsAccount1 extends TimestampLogger with ShortLogger
+        class SavingsAccount2 extends ShortLogger with TimestampLogger
+
+    Then, executing javap -c -private gave the following results:
+
+Compiled from "SavingsAccount1.scala"
+public class SavingsAccount1 implements TimestampLogger,ShortLogger {
+  public void ShortLogger$$super$log(java.lang.String);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #19                 // InterfaceMethod TimestampLogger.log$:(LTimestampLogger;Ljava/lang/String;)V
+       5: return
+
+  public void log(java.lang.String);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #26                 // InterfaceMethod ShortLogger.log$:(LShortLogger;Ljava/lang/String;)V
+       5: return
+
+  public void TimestampLogger$$super$log(java.lang.String);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #32                 // InterfaceMethod ConsoleLogger.log$:(LConsoleLogger;Ljava/lang/String;)V
+       5: return
+
+  public SavingsAccount1();
+    Code:
+       0: aload_0
+       1: invokespecial #36                 // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: invokestatic  #40                 // InterfaceMethod ConsoleLogger.$init$:(LConsoleLogger;)V
+       8: aload_0
+       9: invokestatic  #43                 // InterfaceMethod TimestampLogger.$init$:(LTimestampLogger;)V
+      12: aload_0
+      13: invokestatic  #46                 // InterfaceMethod ShortLogger.$init$:(LShortLogger;)V
+      16: return
+}
+
+Compiled from "SavingsAccount2.scala"
+public class SavingsAccount2 implements ShortLogger,TimestampLogger {
+  public void TimestampLogger$$super$log(java.lang.String);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #19                 // InterfaceMethod ShortLogger.log$:(LShortLogger;Ljava/lang/String;)V
+       5: return
+
+  public void log(java.lang.String);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #26                 // InterfaceMethod TimestampLogger.log$:(LTimestampLogger;Ljava/lang/String;)V
+       5: return
+
+  public void ShortLogger$$super$log(java.lang.String);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #32                 // InterfaceMethod ConsoleLogger.log$:(LConsoleLogger;Ljava/lang/String;)V
+       5: return
+
+  public SavingsAccount2();
+    Code:
+       0: aload_0
+       1: invokespecial #36                 // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: invokestatic  #40                 // InterfaceMethod ConsoleLogger.$init$:(LConsoleLogger;)V
+       8: aload_0
+       9: invokestatic  #43                 // InterfaceMethod ShortLogger.$init$:(LShortLogger;)V
+      12: aload_0
+      13: invokestatic  #46                 // InterfaceMethod TimestampLogger.$init$:(LTimestampLogger;)V
+      16: return
+}
+
+
+    Both ShortLogger and TimestampLogger are turned into Java interfaces; the calls to the log() method (and hereby to
+    the super.log() method) translate into a static invocation to ShortLogger (in the case of SavingsAccount1) and
+    TimestampLogger (in the case of SavingsAccount2), which means that the respective methods are turned into static
+    methods; moreover, both of the classes contain a silly method (TimestampLogger$$super$log() for SavingsAccount1;
+    ShortLogger$$super$log() for SavingsAccount2), probably used to resolve invocations like super.log() contained into
+    the rightmost trait.
