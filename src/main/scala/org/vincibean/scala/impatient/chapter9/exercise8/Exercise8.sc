@@ -19,6 +19,6 @@ import scala.io.Source
 
 // Write a Scala program that prints the src attributes of all img tags of a web
 // page. Use regular expressions and groups.
-val source = Source.fromURL("http://www.w3schools.com/")
+val source = Source.fromURL("https://www.w3schools.com/")
 // TODO Couldn't find a way to pick only the src attribute, only the whole string.
 println("""<img[^>]+src=([A-Za-z0-9'"/.]+)""".r.findAllIn(source.mkString).mkString("; "))
