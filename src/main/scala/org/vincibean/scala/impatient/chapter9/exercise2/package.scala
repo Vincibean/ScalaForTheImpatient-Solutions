@@ -17,7 +17,7 @@
 
 package org.vincibean.scala.impatient.chapter9
 
-import java.io.PrintWriter
+import java.io.{File, PrintWriter}
 
 import scala.io.Source
 
@@ -31,7 +31,7 @@ import scala.io.Source
 package object exercise2 {
 
   def getResource(relativePath: String): String = Source
-    .fromInputStream(getClass.getClassLoader.getResourceAsStream(relativePath))
+    .fromFile(new File(getClass.getClassLoader.getResource(relativePath).toURI))
     .getLines()
     .toList
     .mkString("\n")
