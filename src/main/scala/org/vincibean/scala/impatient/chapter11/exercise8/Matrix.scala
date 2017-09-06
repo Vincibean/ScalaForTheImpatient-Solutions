@@ -18,12 +18,10 @@
 package org.vincibean.scala.impatient.chapter11.exercise8
 
 /**
-  * Provide a class Matrix - you can choose whether you want to implement 2 x 2
-  * matrices, square matrices of any size, or m x n matrices. Supply operations +
-  * and *. The latter should also work with scalars, for example mat * 2. A single
-  * element should be accessible as mat(row, col).
-  *
-  * Created by Vincibean on 12/09/16.
+  * Provide a class Matrix. Choose whether you want to implement 2 x 2 matrices,
+  * square matrices of any size, or m x n matrices. Supply operations + and *. The
+  * latter should also work with scalars, for example mat * 2. A single element
+  * should be accessible as mat(row, col).
   */
 class Matrix(private val mat: Seq[Seq[Double]]) {
   require(mat.forall(_.length == mat.head.length))
@@ -52,12 +50,12 @@ class Matrix(private val mat: Seq[Seq[Double]]) {
     new Matrix(res)
   }
 
-  private def checkDimsForSum(that: Matrix) = {
+  private def checkDimsForSum(that: Matrix): Unit = {
     if (this.cols != that.cols || this.rows != that.rows)
       throw new UnsupportedOperationException
   }
 
-  private def checkDimsForMultiplication(that: Matrix) = {
+  private def checkDimsForMultiplication(that: Matrix): Unit = {
     if (this.cols != that.rows || this.rows != that.cols)
       throw new UnsupportedOperationException
   }
