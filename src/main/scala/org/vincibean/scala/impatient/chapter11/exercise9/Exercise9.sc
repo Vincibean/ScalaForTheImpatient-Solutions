@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016  Vincibean <Andre Bessi>
+ * Copyright (C) 2017  Vincibean <Andre Bessi>
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -15,24 +15,23 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import org.vincibean.scala.impatient.chapter11.exercise9.RichFile
+import org.vincibean.scala.impatient.chapter11.exercise9.PathComponents
 
 // Testing the unapply operator
 "some random text" match {
-  case RichFile(_) => println("This should not work: wrong input")
+  case PathComponents(_) => println("This should not work: wrong input")
   case _ => println("1st test: OK")
 }
 
 "" match {
-  case RichFile(_) => println("This should not work: empty input")
+  case PathComponents(_) => println("This should not work: empty input")
   case _ => println("2nd test: OK")
 }
 
 "/home/cay/readme.txt" match {
-  case RichFile(t) => println(
+  case PathComponents(t) => println(
     s"""This should work and print the following data:
        | file path: ${t._1}
        | file name: ${t._2}
-       | file extension: ${t._3}
      """.stripMargin)
 }

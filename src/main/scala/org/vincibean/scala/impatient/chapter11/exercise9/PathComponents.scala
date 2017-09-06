@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016  Vincibean <Andre Bessi>
+ * Copyright (C) 2017  Vincibean <Andre Bessi>
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -18,21 +18,18 @@
 package org.vincibean.scala.impatient.chapter11.exercise9
 
 /**
-  * Define an unapply operation for the RichFile class that extracts the file path,
-  * name and extension. For example, the file /home/cay/readme.txt has path /home/cay,
-  * name readme, and extension txt.
-  *
-  * Created by Vincibean on 13/09/16.
+  * Define an object PathComponents with an unapply operation class that extracts
+  * the directory path and file name from an java.nio.file.Path. For example, the
+  * file /home/cay/readme.txt has directory path /home/cay and file name readme.txt.
   */
-object RichFile {
+object PathComponents {
   type FilePath = String
   type FileName = String
-  type FileExtension = String
 
-  def unapply(input: String): Option[(FilePath, FileName, FileExtension)] = {
-    val regex = """(.+?)/([^/]+)\.([^\.]+)$""".r
+  def unapply(input: String): Option[(FilePath, FileName)] = {
+    val regex = """(.+?)/([^/]+)$""".r
     input match {
-      case regex(path, name, ext) => Some((path, name, ext))
+      case regex(path, name) => Some((path, name))
       case _ => None
     }
   }
