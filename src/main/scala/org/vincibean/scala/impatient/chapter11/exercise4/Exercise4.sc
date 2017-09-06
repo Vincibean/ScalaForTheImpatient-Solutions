@@ -37,5 +37,5 @@ println(Money(1, 167)) // Will print $2.67
 println(Money(1, 75) + Money(0, 50) == Money(2, 25)) // will print true
 
 // It doesn't make any sense to multiply or divide two amount. It *might* make sense
-// to multiply or divide an amount with an Integer or a double, this would probably lead
-// to a confusing API.
+// to multiply or divide an amount with an Integer or a double, but in my opinion this would probably lead
+// to confusing API.
