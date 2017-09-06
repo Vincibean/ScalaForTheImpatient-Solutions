@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016  Vincibean <Andre Bessi>
+ * Copyright (C) 2017  Vincibean <Andre Bessi>
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -18,13 +18,12 @@
 package org.vincibean.scala.impatient.chapter11.exercise10
 
 /**
-  * Define an unapplySeq operation for the RichFile class that extracts all path
-  * segments. For example, for the file /home/cay/readme.txt, you should produce a
-  * sequence of three segments: home, cay, and readme.txt
-  *
-  * Created by Vincibean on 13/09/16.
+  * Modify the PathComponents object of the preceding exercise to instead define an
+  * unapplySeq operation that extracts all path segments. For example, for the file
+  * /home/cay/readme.txt, you should produce a sequence of three segments: home,
+  * cay, and readme.txt
   */
-object RichFile {
+object PathComponents {
 
   def unapplySeq(input: String): Option[Seq[String]] = {
     input.split("/").filter(_.nonEmpty) match {

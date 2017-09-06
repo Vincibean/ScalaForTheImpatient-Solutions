@@ -15,25 +15,25 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import org.vincibean.scala.impatient.chapter11.exercise10.RichFile
+import org.vincibean.scala.impatient.chapter11.exercise10.PathComponents
 
 // Testing the unapplySeq operator
 "some random text" match {
-  case RichFile(_) => println("1st test: OK")
-  case RichFile(_, _) =>  println("This should not work: wrong input")
-  case RichFile(_, _, _) => println("This should not work: wrong input")
+  case PathComponents(_) => println("1st test: OK")
+  case PathComponents(_, _) =>  println("This should not work: wrong input")
+  case PathComponents(_, _, _) => println("This should not work: wrong input")
   case _ => println("This should not work: wrong input")
 }
 
 "" match {
-  case RichFile(_) => println("This should not work: wrong input")
-  case RichFile(_, _) =>  println("This should not work: wrong input")
-  case RichFile(_, _, _) => println("This should not work: wrong input")
+  case PathComponents(_) => println("This should not work: wrong input")
+  case PathComponents(_, _) =>  println("This should not work: wrong input")
+  case PathComponents(_, _, _) => println("This should not work: wrong input")
   case _ => println("2nd test: OK")
 }
 
 "/home/cay/readme.txt" match {
-  case RichFile(c1, c2, c3) => println(
+  case PathComponents(c1, c2, c3) => println(
     s"""This should work and print the following data:
         | 1st chunk: $c1
         | 2nd chunk: $c2
