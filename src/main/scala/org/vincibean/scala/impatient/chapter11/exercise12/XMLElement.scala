@@ -40,6 +40,6 @@ class XMLElement(val name: String, val attributes: Map[String, String], val chil
     } yield childXmlElem)
 
   override def toString: String =
-    s"<$name ${attributes.map(t => s" ${t._1} = ${t._2}").mkString(" ")}>${childElements.map(_.toString).mkString("\n")}</$name>"
+    s"<$name ${attributes.map(t => s""" ${t._1} = "${t._2}" """).mkString(" ")}>${childElements.map(_.toString).mkString("\n")}</$name>"
 
 }
