@@ -25,7 +25,7 @@ import scala.language.dynamics
   * sible to select paths such as rootElement.html.body.ul(id="42").li, which should
   * return all li elements inside ul with id attribute 42 inside body inside html.
   */
-class XMLElement(val name: String, val attributes: Map[String, String], val childElements: Set[XMLElement]) extends Dynamic {
+class XMLElement(val name: String, val attributes: Map[String, String], val childElements: Seq[XMLElement]) extends Dynamic {
 
   def selectDynamic(name: String): XMLElement = childElements.find(_.name == name).get // allow exceptions to be thrown
 
@@ -33,7 +33,7 @@ class XMLElement(val name: String, val attributes: Map[String, String], val chil
     name = method,
     attributes = Map.empty[String, String], // since this is a fake XMLElement, no attributes are necessary
     childElements = for {
-      xmlElem <- childElements.find(_.name == method).toSet[XMLElement]
+      xmlElem <- childElements.find(_.name == method).toSeq
       childXmlElem <- xmlElem.childElements
       (k, v) <- args
       if childXmlElem.attributes.exists(t => t._1 == k && t._2 == v)
