@@ -22,8 +22,10 @@ val rootElement =
   new XMLElement("root", Map.empty[String, String], Set(
     new XMLElement("html", Map.empty[String, String], Set(
       new XMLElement("body", Map.empty[String, String], Set(
-        new XMLElement("ul", Map("id" -> "42"), Set(
-          new XMLElement("li", Map("name" -> "listItem"), Set.empty[XMLElement])
+        new XMLElement("ul", Map.empty[String, String], Set(
+          new XMLElement("li", Map("name" -> "listItem"), Set.empty[XMLElement]),
+          new XMLElement("li", Map("name" -> "listItem2", "id" -> "42"), Set.empty[XMLElement]),
+          new XMLElement("li", Map("name" -> "listItem3"), Set.empty[XMLElement])
         ))
       ))
     ))
