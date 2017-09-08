@@ -1,24 +1,16 @@
-Q:  Harry Hacker writes a program that accepts a sequence of file names on the
-    command line. For each, he starts a new thread that reads the file and updates
-    a letter frequency map, declared as
+Q:  The Scala compiler transforms a for/yield expression
 
-        val frequencies = new scala.collection.mutable.HashMap[Char, Int] with
-            scala.collection.mutable.SynchronizedMap[Char, Int]
+        for(i <- 1 to 10; j <- 1 to i) yield i * j
 
-    When reading a letter c, he calls
+    to invocations of flatMap and map, like this:
 
-        frequencies.getOrElse(c, 0) + 1
+        (1 to 10).flatMap(i => (1 to i).map(j => i * j))
 
-    Why won’t this work? Will it work if he used instead
+    Explain the use of flatMap. Hint: What is (1 to i).map(j => i * j) when i is 1, 2, 3?
+    What happens when there are three generators in the for/yield expression?
 
-        import scala.collection.JavaConversions.asScalaConcurrentMap
-        val frequencies: scala.collection.mutable.ConcurrentMap[Char, Int] =
-            new java.util.concurrent.ConcurrentHashMap[Char, Int]
-
-
-A:  If 2 threads concurrently update the same frequency, the result will be undefined.
-    The issue here is that, when reading a letter c, he calls `frequencies.getOrElse(c, 0)`, will add 1 and then he
-    will write the result back; however, between the reading and the writing the mutable Map might mutate, thus giving
-    an undefined result.
-    This happen for the SynchronizedMap as well as the ConcurrentHashMap, because the issue is with the `Int` type
-    as value of the Map; it should work with a value type like AtomicInteger.
+A:  When i is 1, 2, 3, (1 to i).map(j => i * j) will return a Collection (a Vector). As such, flatMap is required here:
+    if it were'nt for flatMap, we'd end up with a collection of collection (like Vector[Vector[A]]) instead of a flat
+    collection (like Vector[A]).
+    If there were three generators, the first two generators would be turned into flatMap invocation and the last one
+    would be turned into a map invocation.
