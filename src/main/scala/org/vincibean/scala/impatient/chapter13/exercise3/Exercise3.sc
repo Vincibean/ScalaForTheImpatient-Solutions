@@ -15,14 +15,16 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import java.util
+import org.vincibean.scala.impatient.chapter13.exercise3._
 
-import org.vincibean.scala.impatient.chapter13.exercise3.removeZeroes
+import scala.collection.mutable.ListBuffer
 
-import scala.collection.JavaConverters._
-
-// Test the function
-println(removeZeroes(new util.LinkedList[Int](List(0, 1, 0, 2, 0, 3, 0).asJava)))
-println(removeZeroes(new util.LinkedList[Int](List.empty[Int].asJava)))
-println(removeZeroes(new util.LinkedList[Int](List(1, 2, 3).asJava)))
-println(removeZeroes(new util.LinkedList[Int](List(0, 0, 0).asJava)))
+val as = ListBuffer(1, 2, 3, 4, 5, 6)
+println(s"Created new ListBuffer: $as")
+// Test the remove2ndElementWithCopy() method
+println(s"Printing the result of remove2ndElementWithCopy() : ${remove2ndElementWithCopy(as)}")
+println(s"Printing the state of the ListBuffer: $as")
+// Test the remove2ndElementWithRemove() method
+println(s"Executing remove2ndElementWithRemove()")
+remove2ndElementWithRemove(as)
+println(s"Printing the state of the ListBuffer: $as")

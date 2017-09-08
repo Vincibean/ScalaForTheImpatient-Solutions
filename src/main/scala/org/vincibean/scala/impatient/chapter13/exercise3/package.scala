@@ -17,16 +17,21 @@
 
 package org.vincibean.scala.impatient.chapter13
 
-import java.util
+import scala.collection.mutable.ListBuffer
 
 /**
-  * Write a function that removes all zeroes from a linked list of integers.
+  * Write a function that removes every second element from a ListBuffer. Try it
+  * two ways. Call remove(i) for all even i starting at the end of the list. Copy every
+  * second element to a new list. Compare the performance.
   */
 package object exercise3 {
 
-  def removeZeroes(ints: util.LinkedList[Int]): util.List[Int] = {
-    import scala.collection.JavaConverters._
-    ints.asScala.filterNot(_ == 0).asJava
+  def remove2ndElementWithRemove[A](as: ListBuffer[A]): Unit = {
+    as.indices.filter(_ % 2 == 0).reverse.foreach(as.remove)
+  }
+
+  def remove2ndElementWithCopy[A](as: ListBuffer[A]): ListBuffer[A] = {
+    as.zipWithIndex.filter(_._2 % 2 != 0).map(_._1) // equivalent to a copy
   }
 
 }
