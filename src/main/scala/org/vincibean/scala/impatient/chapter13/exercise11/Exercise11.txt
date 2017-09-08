@@ -8,9 +8,9 @@ Q:  Harry Hacker reads a file into a string and wants to use a parallel collecti
     Why is this a terrible idea? How can he really parallelize the computation?
     (Hint: Use aggregate)
 
-A:  Again, if 2 threads concurrently update the same frequency, the result will be undefined.
-    The issue here is that, when reading a letter c, he calls `frequencies.getOrElse(c, 0)`, will add 1 and then he
-    will write the result back; however, between the reading and the writing the mutable Map might mutate, thus giving
+A:  If 2 threads concurrently update the same frequency, the result will be undefined.
+    The issue here is that, when reading a letter c, he calls `frequencies.getOrElse(c, 0)`, then he adds 1 and then he
+    writes the result back; however, between the reading and the writing the mutable Map might mutate, thus giving
     an undefined result.
     In order to really parallelize the computation, one should use the more robust method `aggregate`; moreover, an
     immutable collection is preferred:
