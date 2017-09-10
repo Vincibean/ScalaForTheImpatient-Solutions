@@ -29,6 +29,7 @@ package org.vincibean.scala.impatient.chapter14
   *  3 8    5
   *
   * has value (3 × 8) + 2 + (–5) = 21.
+  * Pay attention to the unary minus.
   */
 package object exercise8 {
 
