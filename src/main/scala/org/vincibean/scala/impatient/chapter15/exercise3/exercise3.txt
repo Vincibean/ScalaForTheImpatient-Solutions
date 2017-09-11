@@ -1,0 +1,11 @@
+Q:  Which annotations from the Scala library use one of the meta-annotations
+    @param, @field, @getter, @setter, @beanGetter, or @beanSetter?
+
+A:  Inspecting the ScalaDoc API ( http://www.scala-lang.org/api/2.12.3/ ), the only annotation that uses one of the
+    meta-annotations @param, @field, @getter, @setter, @beanGetter, or @beanSetter is:
+
+    scala.annotation.compileTimeOnly
+
+    It uses the following annotations:
+
+    @getter @setter @beanGetter @beanSetter @companionClass @companionMethod
