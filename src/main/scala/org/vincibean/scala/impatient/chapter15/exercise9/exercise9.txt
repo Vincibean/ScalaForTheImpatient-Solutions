@@ -1,0 +1,130 @@
+Q:  The Range.foreach method is annotated as @specialized(Unit). Why? Look at the
+    bytecode by running
+
+           javap -classpath /path/to/scala/lib/scala-library.jar
+             scala.collection.immutable.Range
+
+    and consider the @specialized annotations on Function1. Click on the Function1.scala
+    link in Scaladoc to see them.
+
+A:  The decompiled bytecode is as follow:
+
+        Compiled from "Range.scala"
+        public class scala.collection.immutable.Range extends scala.collection.AbstractSeq<java.lang.Object> implements scala.collection.immutable.IndexedSeq<java.lang.Object>, scala.collection.CustomParallelizable<java.lang.Object, scala.collection.parallel.immutable.ParRange>, scala.Serializable {
+          public static final long serialVersionUID;
+          public scala.collection.parallel.Combiner<java.lang.Object, scala.collection.parallel.immutable.ParRange> parCombiner();
+          public scala.collection.generic.GenericCompanion<scala.collection.immutable.IndexedSeq> companion();
+          public scala.collection.immutable.IndexedSeq<java.lang.Object> toIndexedSeq();
+          public scala.collection.immutable.IndexedSeq<java.lang.Object> seq();
+          public int hashCode();
+          public scala.collection.IndexedSeq<java.lang.Object> thisCollection();
+          public scala.collection.IndexedSeq toCollection(java.lang.Object);
+          public scala.collection.Iterator<java.lang.Object> iterator();
+          public <A1> scala.collection.mutable.Buffer<A1> toBuffer();
+          public int sizeHintIfCheap();
+          public int start();
+          public int end();
+          public int step();
+          public scala.collection.parallel.immutable.ParRange par();
+          public final boolean isEmpty();
+          public int scala$collection$immutable$Range$$numRangeElements();
+          public int scala$collection$immutable$Range$$lastElement();
+          public int last();
+          public int head();
+          public <A1> int min(scala.math.Ordering<A1>);
+          public <A1> int max(scala.math.Ordering<A1>);
+          public scala.collection.immutable.Range copy(int, int, int);
+          public scala.collection.immutable.Range by(int);
+          public boolean isInclusive();
+          public int size();
+          public int length();
+          public void scala$collection$immutable$Range$$validateMaxLength();
+          public final int apply(int);
+          public final <U> void foreach(scala.Function1<java.lang.Object, U>);
+          public final scala.collection.immutable.Range take(int);
+          public final scala.collection.immutable.Range drop(int);
+          public scala.collection.immutable.Range slice(int, int);
+          public final scala.collection.immutable.Range init();
+          public final scala.collection.immutable.Range tail();
+          public final scala.collection.immutable.Range takeWhile(scala.Function1<java.lang.Object, java.lang.Object>);
+          public final scala.collection.immutable.Range dropWhile(scala.Function1<java.lang.Object, java.lang.Object>);
+          public final scala.Tuple2<scala.collection.immutable.Range, scala.collection.immutable.Range> span(scala.Function1<java.lang.Object, java.lang.Object>);
+          public final scala.Tuple2<scala.collection.immutable.Range, scala.collection.immutable.Range> splitAt(int);
+          public final scala.collection.immutable.Range takeRight(int);
+          public final scala.collection.immutable.Range dropRight(int);
+          public final scala.collection.immutable.Range reverse();
+          public scala.collection.immutable.Range inclusive();
+          public final boolean contains(int);
+          public final <B> int sum(scala.math.Numeric<B>);
+          public scala.collection.immutable.Range toIterable();
+          public scala.collection.immutable.Range toSeq();
+          public boolean equals(java.lang.Object);
+          public java.lang.String toString();
+          public final void foreach$mVc$sp(scala.Function1<java.lang.Object, scala.runtime.BoxedUnit>);
+          public int apply$mcII$sp(int);
+          public scala.collection.GenTraversable toTraversable();
+          public scala.collection.GenMap groupBy(scala.Function1);
+          public boolean isDefinedAt(java.lang.Object);
+          public scala.collection.TraversableView view(int, int);
+          public scala.collection.IterableView view(int, int);
+          public scala.collection.TraversableView view();
+          public scala.collection.IterableView view();
+          public scala.collection.Traversable toCollection(java.lang.Object);
+          public scala.collection.Iterable toCollection(java.lang.Object);
+          public scala.collection.Seq toCollection(java.lang.Object);
+          public scala.collection.Traversable thisCollection();
+          public scala.collection.Iterable thisCollection();
+          public scala.collection.Seq thisCollection();
+          public scala.collection.TraversableOnce seq();
+          public scala.collection.Traversable seq();
+          public scala.collection.Iterable seq();
+          public scala.collection.Seq seq();
+          public scala.collection.immutable.Traversable seq();
+          public scala.collection.immutable.Iterable seq();
+          public scala.collection.immutable.Seq seq();
+          public scala.collection.IndexedSeq seq();
+          public scala.collection.GenSeq toSeq();
+          public scala.collection.Seq toSeq();
+          public scala.collection.immutable.Seq toSeq();
+          public scala.collection.GenIterable toIterable();
+          public scala.collection.Iterable toIterable();
+          public final java.lang.Object sum(scala.math.Numeric);
+          public final java.lang.Object reverse();
+          public final java.lang.Object dropRight(int);
+          public final java.lang.Object takeRight(int);
+          public final java.lang.Object dropWhile(scala.Function1);
+          public final java.lang.Object takeWhile(scala.Function1);
+          public final java.lang.Object tail();
+          public final java.lang.Object init();
+          public java.lang.Object slice(int, int);
+          public final java.lang.Object drop(int);
+          public final java.lang.Object take(int);
+          public final java.lang.Object apply(java.lang.Object);
+          public final java.lang.Object apply(int);
+          public java.lang.Object max(scala.math.Ordering);
+          public java.lang.Object min(scala.math.Ordering);
+          public java.lang.Object head();
+          public java.lang.Object last();
+          public scala.collection.Parallel par();
+          public scala.collection.immutable.Range(int, int, int);
+        }
+
+    You can restrict specialization to a subset of types using the @specialized(SomeType) notation. In foreach()'s case,
+    this means that that the specialization is restricted to the Unit type. This gets translated into the following Java
+    methods:
+
+        public final <U> void foreach(scala.Function1<java.lang.Object, U>);
+        public final void foreach$mVc$sp(scala.Function1<java.lang.Object, scala.runtime.BoxedUnit>);
+
+    Where BoxedUnit is "an implementation detail of Scala on the JVM, used to encode () [Unit] when it enters in a
+    generic context" ( https://stackoverflow.com/a/32295207 ).
+    Moreover, the Function1 trait has the following signature:
+
+        trait Function1[@specialized(scala.Int, scala.Long, scala.Float, scala.Double) -T1, @specialized(scala.Unit, scala.Boolean, scala.Int, scala.Float, scala.Long, scala.Double) +R] extends AnyRef { ... }
+
+    Which means that, in turn, Function1 is specialized: it is specialized on T1 (the input type parameter) to the types
+    Int, Long, Float, Double; and it's specialized on R (the output type) to the types Unit, Boolean, Int, Float, Long,
+    Double.
+
+
+
