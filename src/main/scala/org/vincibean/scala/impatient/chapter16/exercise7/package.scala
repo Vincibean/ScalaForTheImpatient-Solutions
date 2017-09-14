@@ -17,7 +17,7 @@
 
 package org.vincibean.scala.impatient.chapter16
 
-import scala.xml.Elem
+import scala.xml.{Elem, Text}
 
 /**
   * Write a function that has a parameter of type Map[String, String] and returns
@@ -30,6 +30,6 @@ import scala.xml.Elem
 package object exercise7 {
 
   def toDescriptionList(ss: Map[String, String]): Elem =
-    <dl>{ ss.map { case (k, v) => <dt>{k}</dt><dd>{v}</dd> } }</dl>
+    <dl>{ ss.map { case (k, v) => <dt>{Text(k)}</dt><dd>{Text(v)}</dd> } }</dl>
 
 }
