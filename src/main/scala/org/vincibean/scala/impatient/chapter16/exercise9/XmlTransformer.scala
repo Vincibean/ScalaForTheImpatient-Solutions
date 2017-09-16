@@ -37,6 +37,6 @@ object XmlTransformer {
 
   val xhtmlFile: Elem = XML.loadFile(getClass.getClassLoader.getResource("chapter16/exercise9/example.xhtml").getPath)
 
-  def transform(el: Elem): Seq[Node] = new RuleTransformer(rule).transform(el)
+  def transform(el: Seq[Node]): Seq[Node] = new RuleTransformer(rule).transform(el)
 
 }
