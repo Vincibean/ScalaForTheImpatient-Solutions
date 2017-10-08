@@ -29,4 +29,4 @@ val g: Int => Future[Int] = (x: Int) => Future {
   Thread.sleep(5)
   x + 2
 }
-Await.result(doInOrder(f, g)(global)(5).map(i => println(s"The final result is $i")), Duration.Inf)
+println(Await.result(doInOrder(f, g)(global)(5).map(i => s"The final result is $i"), Duration.Inf))
