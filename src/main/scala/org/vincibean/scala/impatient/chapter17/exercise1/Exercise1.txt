@@ -1,0 +1,26 @@
+Q:  Consider the expression
+
+        for {
+            n1 <- Future { Thread.sleep(1000) ; 2 }
+            n2 <- Future { Thread.sleep(1000); 40 }
+        } println(n1 + n2)
+
+    How is the expression translated to map and flatMap calls? Are the two futures
+    executed concurrently or one after the other? In which thread does the call
+    to println occur?
+
+A:  The expression gets translated into the following map and flatMap calls:
+
+        Future({
+          Thread.sleep(1000);
+          2
+        }).foreach(((n1: Int) => Future({
+          Thread.sleep(1000);
+          40
+        }).foreach(((n2: Int) => println(n1.+(n2))))))
+
+    The two futures are executed one after the other (i.e. the total time to wait is ~2 seconds)
+    The call to println occurs in a different thread, not the main thread (i.e. if you were to execute the previous
+    snippet in the Scala REPL, you'd be greeted with the prompt immediately, and after ~2 seconds you's see the number
+    "42" printed out to the console.
+
