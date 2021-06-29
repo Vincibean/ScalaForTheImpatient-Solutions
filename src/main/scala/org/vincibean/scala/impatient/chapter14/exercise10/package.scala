@@ -30,10 +30,30 @@ package org.vincibean.scala.impatient.chapter14
   */
 package object exercise10 {
 
-  def compose(f: Double => Option[Double], g: Double => Option[Double]): Double => Option[Double] = d =>
-    (f(d), g(d)) match {
-      case (Some(_), b @ Some(_)) => b
-      case _ => None
+// h(2) returns Some(1), h(1) returns None, but h(0) returns -1.0 instead of None
+//   def compose(f: Double => Option[Double], g: Double => Option[Double]): Double => Option[Double] = d =>
+//     (f(d), g(d)) match {
+//       case (Some(_), b @ Some(_)) => b
+//       case _ => None
+//     }
+ 
+def compose(f: Double => Option[Double], g: Double => Option[Double]): (Double) => Option[Double] = (x: Double) => {
+    g(x) match {
+        case Some(a) => f(a) 
+        case _ => None
     }
-
+}
+ 
+// Alternate version using the 'val function' syntax to declare a local function and return it. 
+def compose2(f: Double => Option[Double], g: Double => Option[Double]): (Double) => Option[Double] = {
+    // This is the syntax to explicitly declare the return type of a 'val function'.  The full function
+    // type declaration occurs between the : and the =.
+    val h: (Double) => Option[Double] = (x: Double) =>  {
+        g(x) match {
+            case Some(a) => f(a) 
+            case _ => None
+        }
+    }
+    h // return the function 
+}
 }
